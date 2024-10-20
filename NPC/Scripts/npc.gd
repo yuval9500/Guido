@@ -6,14 +6,15 @@ var dialogueUI: DialogueUI
 func _ready() -> void:
 	dialogueUI = get_tree().get_root().find_child("DialogueUI",true,false)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		print("body entered")
 		canInteract = true
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		print("body exited")
+		dialogueUI.stopDialogue()
 		canInteract = false 
 
 func _input(event: InputEvent) -> void:
