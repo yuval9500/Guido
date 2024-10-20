@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Guido"
-run/main_scene="res://Menu/scenes/menu.tscn"
+run/main_scene="res://TestLevel/Scenes/test_NPC.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+StoryManager="*res://Globals/StoryManager/StoryManager.gd"
 
 [display]
 
