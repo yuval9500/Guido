@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func _on_menu_play_btn_pressed() -> void:
 	print("Play Btn Was Pressed")
+	get_tree().change_scene_to_file("res://TestLevel/Scenes/test_level.tscn")
 	pass
 
 func _on_menu_options_btn_pressed() -> void:
