@@ -5,7 +5,7 @@ var speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	target = $"../Player"
+	target = get_tree().get_root().find_child("Player",true,false)
 	speed = target.speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
