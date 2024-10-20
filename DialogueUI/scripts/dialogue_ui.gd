@@ -1,4 +1,6 @@
-extends Control
+extends CanvasLayer
+
+class_name DialogueUI
 
 func startDialogue(nameText ,dialogueText) -> void:
 	self.visible = true
