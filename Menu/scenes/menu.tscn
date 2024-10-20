@@ -1,0 +1,134 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbf3ak7twpqwh"]
+
+[ext_resource type="Script" path="res://Menu/scripts/menu.gd" id="1_2mdlx"]
+[ext_resource type="Texture2D" uid="uid://bsmtuj7egyl1v" path="res://Menu/sprites/check.png" id="2_2pt05"]
+[ext_resource type="AudioStream" uid="uid://dfte08e0r6kfn" path="res://Audio/Menu_Music.mp3" id="2_k3o4f"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2mdlx")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 641.0
+offset_bottom = 359.0
+
+[node name="MenuAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_k3o4f")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+
+[node name="MenuGroup" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 260.0
+offset_top = 170.0
+offset_right = 300.0
+offset_bottom = 210.0
+
+[node name="PlayBtn" type="Button" parent="MenuGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -70.0
+offset_right = 100.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[node name="OptionsBtn" type="Button" parent="MenuGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options
+"
+
+[node name="ExitBtn" type="Button" parent="MenuGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 30.0
+offset_right = 100.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+
+[node name="OptionsGroup" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Music" type="Control" parent="OptionsGroup"]
+anchors_preset = 0
+offset_left = 24.0
+offset_top = -3.0
+offset_right = 64.0
+offset_bottom = 37.0
+
+[node name="Label" type="Label" parent="OptionsGroup/Music"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 138.0
+offset_top = 168.0
+offset_right = 178.0
+offset_bottom = 191.0
+text = "Music"
+
+[node name="MusicScrollBar" type="HScrollBar" parent="OptionsGroup/Music"]
+custom_minimum_size = Vector2(250, 15)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 175.0
+offset_top = 152.5
+offset_right = 425.0
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
+min_value = -80.0
+max_value = 0.0
+rounded = true
+
+[node name="DoneBtn" type="Button" parent="OptionsGroup"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 248.0
+offset_right = 750.0
+offset_bottom = 768.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("2_2pt05")
+flat = true
+
+[connection signal="pressed" from="MenuGroup/PlayBtn" to="." method="_on_menu_play_btn_pressed"]
+[connection signal="pressed" from="MenuGroup/OptionsBtn" to="." method="_on_menu_options_btn_pressed"]
+[connection signal="pressed" from="MenuGroup/ExitBtn" to="." method="_on_menu_exit_btn_pressed"]
+[connection signal="value_changed" from="OptionsGroup/Music/MusicScrollBar" to="." method="_on_music_scroll_bar_value_changed"]
+[connection signal="pressed" from="OptionsGroup/DoneBtn" to="." method="_on_done_btn_pressed"]
