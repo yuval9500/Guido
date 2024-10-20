@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://8jq6rkieofgp"]
+[gd_scene load_steps=4 format=3 uid="uid://8jq6rkieofgp"]
 
 [ext_resource type="PackedScene" uid="uid://cjal7htsu6nmm" path="res://Player/Scenes/player.tscn" id="1_pdwvv"]
+[ext_resource type="PackedScene" uid="uid://ctohr751keohh" path="res://NPC/Scenes/NPC.tscn" id="1_t1m6s"]
 [ext_resource type="PackedScene" uid="uid://b8vyq8toh8r5q" path="res://Player/Scenes/companion.tscn" id="2_l8sjk"]
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_pdwvv")]
-position = Vector2(273, 189)
+[node name="Npc" parent="." instance=ExtResource("1_t1m6s")]
+position = Vector2(442, 183)
 
 [node name="Companion" parent="." instance=ExtResource("2_l8sjk")]
 position = Vector2(174, 186)
+
+[node name="Player" parent="." instance=ExtResource("1_pdwvv")]
+position = Vector2(273, 189)
