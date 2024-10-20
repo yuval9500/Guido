@@ -4,13 +4,14 @@
 [ext_resource type="Script" path="res://Player/Scripts/Player_Script.gd" id="1_ewu68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_754lw"]
-size = Vector2(24, 32)
+size = Vector2(24, 16)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ewu68")
 speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_754lw")
 
 [node name="Player_Sprite" type="Sprite2D" parent="."]

@@ -4,13 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://bb34nkeo08nuc" path="res://Player/Sprites/Companion_Sprite.png" id="1_uorac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44epb"]
+size = Vector2(24, 16)
 
 [node name="Companion" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_p2vri")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_44epb")
-disabled = true
 
 [node name="Companion_Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_uorac")
