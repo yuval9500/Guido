@@ -1,12 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://chfv303u8mjuy"]
+[gd_scene load_steps=5 format=3 uid="uid://chfv303u8mjuy"]
 
+[ext_resource type="PackedScene" uid="uid://ctohr751keohh" path="res://NPC/Scenes/NPC.tscn" id="1_e1fxr"]
 [ext_resource type="PackedScene" uid="uid://cjal7htsu6nmm" path="res://Player/Scenes/player.tscn" id="1_kpts8"]
+[ext_resource type="PackedScene" uid="uid://d0cefv5mkn113" path="res://DialogueUI/scenes/DialogueUI.tscn" id="1_ldllg"]
 [ext_resource type="PackedScene" uid="uid://b8vyq8toh8r5q" path="res://Player/Scenes/companion.tscn" id="2_yceyv"]
 
 [node name="TestLevel" type="Node2D"]
 
+[node name="Npc" parent="." instance=ExtResource("1_e1fxr")]
+position = Vector2(442, 179)
+
 [node name="Player" parent="." instance=ExtResource("1_kpts8")]
 position = Vector2(273, 189)
+speed = 400
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="DialogueUI" parent="Player/Camera2D" instance=ExtResource("1_ldllg")]
+visible = false
+offset_left = -322.0
+offset_top = -180.0
+offset_right = 322.0
+offset_bottom = 179.0
 
 [node name="Companion" parent="." instance=ExtResource("2_yceyv")]
 position = Vector2(174, 186)

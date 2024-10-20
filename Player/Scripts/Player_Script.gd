@@ -27,10 +27,3 @@ func get_input():
 		isMoving = false
 	
 	velocity = input_direction * speed
-	
-func _input(event: InputEvent) -> void:
-	dialogue(event)
-	
-func dialogue(event: InputEvent) -> void:
-	if canInteract and event.is_action_pressed("talk"):
-		print("pressed e")
