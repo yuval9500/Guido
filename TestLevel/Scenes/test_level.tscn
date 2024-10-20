@@ -116,3 +116,7 @@ position = Vector2(174, 186)
 
 [node name="Player" parent="." instance=ExtResource("1_pdwvv")]
 position = Vector2(273, 189)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
