@@ -17,11 +17,7 @@ speed = 400
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="DialogueUI" parent="Player/Camera2D" instance=ExtResource("1_ldllg")]
-visible = false
-offset_left = -322.0
-offset_top = -180.0
-offset_right = 322.0
-offset_bottom = 179.0
+visible = true
 
 [node name="Companion" parent="." instance=ExtResource("2_yceyv")]
 position = Vector2(174, 186)
