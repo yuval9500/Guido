@@ -174,4 +174,3 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="CombatPlayerUI/AttackBtn" to="." method="_on_attack_btn_pressed"]
 [connection signal="pressed" from="CombatPlayerUI/MagicBtn" to="." method="_on_magic_btn_pressed"]
 [connection signal="pressed" from="CombatPlayerUI/ItemBtn" to="." method="_on_item_btn_pressed"]
-[connection signal="resized" from="CombatPlayerUI/CombatMenu/Option1" to="CombatPlayerUI/CombatMenu" method="_on_option_1_resized"]
