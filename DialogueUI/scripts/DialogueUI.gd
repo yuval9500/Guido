@@ -37,12 +37,12 @@ func startDialogue(nameTexts: Array, dialogueTexts: Array, sfxSound: String) -> 
 	set_name_and_start_line(lineIndex)
 
 func set_name_and_start_line(index: int) -> void:
-	$nameCon/Label.text = name_texts[index]
+	$nameCon/nameLabel.text = name_texts[index]
 	startLine(dialogue_lines[index])
 
 func startLine(dialogueLine: String) -> void:
 	char_index = 0
-	$dialogueCon/Label.text = ""
+	$dialogueCon/dialogueLabel.text = ""
 	dialogue_line = dialogueLine 
 	skip_typing = false
 	waiting_for_next_line = false 
@@ -64,14 +64,14 @@ func _input(event):
 func _on_timer_timeout() -> void:
 	if skip_typing:
 		# Immediately reveal the dialogue line and stop typing effect
-		$dialogueCon/Label.text = dialogue_line
+		$dialogueCon/dialogueLabel.text = dialogue_line
 		typing_timer.stop()
 		waiting_for_next_line = true  
 		return
 
 	# Type one letter at a time and play sound effect
 	if char_index < dialogue_line.length():
-		$dialogueCon/Label.text += dialogue_line[char_index]
+		$dialogueCon/dialogueLabel.text += dialogue_line[char_index]
 		char_index += 1
 		
 		# Play typing sound effect if loaded
