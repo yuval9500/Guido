@@ -150,7 +150,7 @@ anchor_bottom = 0.171421
 offset_left = 50.0
 offset_top = 8.04
 offset_right = 60.0
-offset_bottom = 18.04
+offset_bottom = 13.5145
 rotation = 0.785398
 color = Color(0.239216, 0.239216, 0.239216, 1)
 
@@ -164,7 +164,7 @@ anchor_bottom = 0.391421
 offset_left = 50.0
 offset_top = 23.0
 offset_right = 60.0
-offset_bottom = 33.0
+offset_bottom = 28.4745
 rotation = 0.785398
 color = Color(0.239216, 0.239216, 0.239216, 1)
 metadata/_edit_use_anchors_ = true
