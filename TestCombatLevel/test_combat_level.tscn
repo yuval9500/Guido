@@ -2,15 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://180k6y5ddc82" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 1 - DAY.png" id="1_0dt3t"]
 [ext_resource type="PackedScene" uid="uid://d3pg4x76ml81q" path="res://Components/Transition_Manager/transition_manager.tscn" id="1_1v7kp"]
-[ext_resource type="PackedScene" uid="uid://ch6wri6wxhic4" path="res://Components/CombatUI/combat_ui.tscn" id="1_bmq5s"]
+[ext_resource type="PackedScene" uid="uid://ch6wri6wxhic4" path="res://Components/CombatUI/combat_manager.tscn" id="1_bmq5s"]
 [ext_resource type="Texture2D" uid="uid://bsk1r6fnnal2p" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 2 - DAY.png" id="2_3aqh7"]
 [ext_resource type="Texture2D" uid="uid://bb34nkeo08nuc" path="res://Player/Sprites/Companion_Sprite.png" id="2_4b2cx"]
-[ext_resource type="Texture2D" uid="uid://std3tutoij04" path="res://NPC/Sprites/image.png" id="3_rv7ma"]
 [ext_resource type="Texture2D" uid="uid://d1gj6hn0bob17" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 3 - DAY.png" id="3_y2vh6"]
 [ext_resource type="Texture2D" uid="uid://if8qb2bwumkb" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 4 - DAY.png" id="4_2ustq"]
 [ext_resource type="Texture2D" uid="uid://8d70dcgp8670" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 5 - DAY.png" id="5_sknsg"]
 [ext_resource type="Texture2D" uid="uid://dvjybmogsm6al" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND TILE - DAY.png" id="6_5ep05"]
 [ext_resource type="PackedScene" uid="uid://cs7if2w7onjat" path="res://Combat/Scenes/combat_player.tscn" id="7_6pmvy"]
+[ext_resource type="PackedScene" uid="uid://08ntbwq3u77l" path="res://Combat/Scenes/combat_enemy.tscn" id="11_ndspt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fi00"]
 texture = ExtResource("1_0dt3t")
@@ -56,17 +56,31 @@ tile_map_data = PackedByteArray("AAAAAAAABQAAAAAAAAAAAAEABQAAAAAAAAAAAAIABQAAAAA
 tile_set = SubResource("TileSet_e7fix")
 metadata/_edit_lock_ = true
 
-[node name="CombatPlayer" parent="." instance=ExtResource("7_6pmvy")]
-position = Vector2(447, 131)
+[node name="Players" type="Node2D" parent="."]
 
-[node name="CompanionSprite" type="Sprite2D" parent="."]
-position = Vector2(449, 207)
-texture = ExtResource("2_4b2cx")
+[node name="CombatPlayer1" parent="Players" instance=ExtResource("7_6pmvy")]
+offset_left = 425.0
+offset_top = 120.0
+offset_right = 449.0
+offset_bottom = 152.0
 
-[node name="Enemy1" type="Sprite2D" parent="."]
-position = Vector2(159, 130)
-texture = ExtResource("3_rv7ma")
+[node name="CombatPlayer2" parent="Players" instance=ExtResource("7_6pmvy")]
+offset_left = 425.0
+offset_top = 220.0
+offset_right = 449.0
+offset_bottom = 252.0
+playerSprite = ExtResource("2_4b2cx")
 
-[node name="Enemy2" type="Sprite2D" parent="."]
-position = Vector2(159, 198)
-texture = ExtResource("3_rv7ma")
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="CombatEnemy1" parent="Enemies" instance=ExtResource("11_ndspt")]
+offset_left = 179.0
+offset_top = 107.0
+offset_right = 203.0
+offset_bottom = 139.0
+
+[node name="CombatEnemy2" parent="Enemies" instance=ExtResource("11_ndspt")]
+offset_left = 177.0
+offset_top = 202.0
+offset_right = 201.0
+offset_bottom = 234.0
