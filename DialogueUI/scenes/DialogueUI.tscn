@@ -27,7 +27,7 @@ grow_vertical = 2
 color = Color(0.172833, 0.172833, 0.172833, 0.882353)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="nameCon"]
+[node name="nameLabel" type="Label" parent="nameCon"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.041958
@@ -55,7 +55,7 @@ grow_vertical = 2
 color = Color(0.172833, 0.172833, 0.172833, 0.882353)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="dialogueCon"]
+[node name="dialogueLabel" type="Label" parent="dialogueCon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
