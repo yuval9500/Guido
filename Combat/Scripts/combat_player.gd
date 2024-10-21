@@ -9,7 +9,7 @@ var itemIndicator: ColorRect
 
 var attackOptions: Array = ["Attacks:", "Stormbreaker", "", ""]
 var spellOptions: Array = ["Spells:", "Firebolt", "", ""]
-var itemOptions: Array = ["Items:", "Health potion", "", ""]
+var itemOptions: Array = ["Items:", "Health potion", "Ring of Fireball", ""]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
