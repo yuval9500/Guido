@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dcd2xgbxbt2gn" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GRASS DETAIL 6 - DAY.png" id="14_jrrkl"]
 [ext_resource type="PackedScene" uid="uid://cbiw66nhk4vvi" path="res://Components/combat_zone.tscn" id="16_u8gms"]
 [ext_resource type="Texture2D" uid="uid://1rrnx2awov4r" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GRASS TILE - DAY.png" id="17_flxqe"]
-[ext_resource type="PackedScene" path="res://Components/Camera.tscn" id="19_73opl"]
+[ext_resource type="PackedScene" uid="uid://jm6agy8uctxj" path="res://Components/Camera.tscn" id="19_73opl"]
 [ext_resource type="Texture2D" uid="uid://180k6y5ddc82" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 1 - DAY.png" id="19_abmeb"]
 [ext_resource type="PackedScene" uid="uid://ctohr751keohh" path="res://NPC/Scenes/NPC.tscn" id="21_dhs3b"]
 [ext_resource type="Texture2D" uid="uid://bsk1r6fnnal2p" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 2 - DAY.png" id="21_ni3xj"]
