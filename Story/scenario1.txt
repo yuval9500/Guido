@@ -1,0 +1,8 @@
+Baldude$ Hey, are you coming to the party tonight?
+Player$ I don’t know. I’m not feeling it.
+Baldude$ Oh, come on, it'll be fun. You always say that.
+Player$ I know, but I’m really tired today.
+Baldude$ Just for a little while? You won’t regret it.
+Player$ I guess… but if it’s boring, I’m leaving early.
+Baldude$ Deal! I’ll pick you up at seven.
+Player$ Fine, fine. I’ll be ready.
