@@ -14,63 +14,71 @@ default_font_size = 12
 [sub_resource type="LabelSettings" id="LabelSettings_2m8yl"]
 font = ExtResource("5_tnfj7")
 
-[node name="CombatPlayer" type="TextureButton"]
-offset_left = -12.0
-offset_top = -16.0
-offset_right = 12.0
-offset_bottom = 16.0
-texture_normal = ExtResource("1_33j6v")
+[node name="CombatPlayer" type="Node2D"]
 script = ExtResource("1_fu1dw")
 
-[node name="AttackBtn" type="TextureButton" parent="."]
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_33j6v")
+
+[node name="CombatPlayerUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AttackBtn" type="TextureButton" parent="CombatPlayerUI"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 32.0
-offset_top = -16.0
-offset_right = 52.0
-offset_bottom = 4.0
+offset_left = 20.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = -12.0
 texture_normal = ExtResource("2_ym5j6")
 ignore_texture_size = true
 stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="MagicBtn" type="TextureButton" parent="."]
+[node name="MagicBtn" type="TextureButton" parent="CombatPlayerUI"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 32.0
-offset_top = 6.0
-offset_right = 52.0
-offset_bottom = 26.0
+offset_left = 20.0
+offset_top = -10.0
+offset_right = 40.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_7f551")
 ignore_texture_size = true
 stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="ItemBtn" type="TextureButton" parent="."]
+[node name="ItemBtn" type="TextureButton" parent="CombatPlayerUI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.097
 anchor_bottom = 0.097
-offset_left = 32.0
-offset_top = 24.896
-offset_right = 52.0
-offset_bottom = 44.896
+offset_left = 20.0
+offset_top = 12.0
+offset_right = 40.0
+offset_bottom = 32.0
 grow_horizontal = 2
 texture_normal = ExtResource("4_sv5ce")
 ignore_texture_size = true
 stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="CombatMenu" type="ColorRect" parent="."]
-visible = false
+[node name="CombatMenu" type="ColorRect" parent="CombatPlayerUI"]
 layout_mode = 0
-offset_left = 62.0
-offset_top = -64.0
-offset_right = 222.0
-offset_bottom = 96.0
+offset_left = 50.0
+offset_top = -80.0
+offset_right = 210.0
+offset_bottom = 80.0
 theme = SubResource("Theme_jh1xu")
 color = Color(0.237539, 0.237539, 0.237539, 1)
 
-[node name="Title" type="Label" parent="CombatMenu"]
+[node name="Title" type="Label" parent="CombatPlayerUI/CombatMenu"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -85,7 +93,7 @@ label_settings = SubResource("LabelSettings_2m8yl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Option1" type="Button" parent="CombatMenu"]
+[node name="Option1" type="Button" parent="CombatPlayerUI/CombatMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0859375
@@ -99,7 +107,7 @@ grow_horizontal = 2
 text = "Option1"
 metadata/_edit_use_anchors_ = true
 
-[node name="Option2" type="Button" parent="CombatMenu"]
+[node name="Option2" type="Button" parent="CombatPlayerUI/CombatMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0859375
@@ -114,7 +122,7 @@ grow_horizontal = 2
 text = "Option1"
 metadata/_edit_use_anchors_ = true
 
-[node name="Option3" type="Button" parent="CombatMenu"]
+[node name="Option3" type="Button" parent="CombatPlayerUI/CombatMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0859375
@@ -129,17 +137,17 @@ grow_horizontal = 2
 text = "Option1"
 metadata/_edit_use_anchors_ = true
 
-[node name="AttackIndicator" type="ColorRect" parent="."]
+[node name="AttackIndicator" type="ColorRect" parent="CombatPlayerUI"]
 visible = false
 layout_mode = 0
-offset_left = 62.0
-offset_top = -13.0
-offset_right = 72.0
-offset_bottom = -3.0
+offset_left = 50.0
+offset_top = -29.0
+offset_right = 60.0
+offset_bottom = -19.0
 rotation = 0.785398
 color = Color(0.239216, 0.239216, 0.239216, 1)
 
-[node name="MagicIndicator" type="ColorRect" parent="."]
+[node name="MagicIndicator" type="ColorRect" parent="CombatPlayerUI"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -148,13 +156,13 @@ anchor_top = 0.03
 anchor_right = 0.5
 anchor_bottom = 0.171421
 offset_left = 50.0
-offset_top = 8.04
+offset_top = -7.0
 offset_right = 60.0
-offset_bottom = 18.04
+offset_bottom = 3.0
 rotation = 0.785398
 color = Color(0.239216, 0.239216, 0.239216, 1)
 
-[node name="ItemIndicator" type="ColorRect" parent="."]
+[node name="ItemIndicator" type="ColorRect" parent="CombatPlayerUI"]
 visible = false
 layout_mode = 0
 anchor_left = 0.5
@@ -162,14 +170,13 @@ anchor_top = 0.25
 anchor_right = 0.5
 anchor_bottom = 0.391421
 offset_left = 50.0
-offset_top = 23.0
+offset_top = 15.0
 offset_right = 60.0
-offset_bottom = 33.0
+offset_bottom = 25.0
 rotation = 0.785398
 color = Color(0.239216, 0.239216, 0.239216, 1)
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
-[connection signal="pressed" from="AttackBtn" to="." method="_on_attack_btn_pressed"]
-[connection signal="pressed" from="MagicBtn" to="." method="_on_magic_btn_pressed"]
-[connection signal="pressed" from="ItemBtn" to="." method="_on_item_btn_pressed"]
+[connection signal="pressed" from="CombatPlayerUI/AttackBtn" to="." method="_on_attack_btn_pressed"]
+[connection signal="pressed" from="CombatPlayerUI/MagicBtn" to="." method="_on_magic_btn_pressed"]
+[connection signal="pressed" from="CombatPlayerUI/ItemBtn" to="." method="_on_item_btn_pressed"]
