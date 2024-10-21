@@ -48,7 +48,6 @@ sources/5 = SubResource("TileSetAtlasSource_omndf")
 
 [node name="TransitionManager" parent="." instance=ExtResource("1_1v7kp")]
 visible = false
-top_level = true
 
 [node name="CombatUI" parent="." instance=ExtResource("1_bmq5s")]
 
