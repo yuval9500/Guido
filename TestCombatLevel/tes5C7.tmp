@@ -1,7 +1,6 @@
-[gd_scene load_steps=19 format=4 uid="uid://ca1kpawrdpwe8"]
+[gd_scene load_steps=18 format=4 uid="uid://ca1kpawrdpwe8"]
 
 [ext_resource type="Texture2D" uid="uid://180k6y5ddc82" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 1 - DAY.png" id="1_0dt3t"]
-[ext_resource type="PackedScene" uid="uid://d3pg4x76ml81q" path="res://Components/Transition_Manager/transition_manager.tscn" id="1_1v7kp"]
 [ext_resource type="PackedScene" uid="uid://ch6wri6wxhic4" path="res://Components/CombatUI/combat_ui.tscn" id="1_bmq5s"]
 [ext_resource type="Texture2D" uid="uid://bsk1r6fnnal2p" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 2 - DAY.png" id="2_3aqh7"]
 [ext_resource type="Texture2D" uid="uid://bb34nkeo08nuc" path="res://Player/Sprites/Companion_Sprite.png" id="2_4b2cx"]
@@ -10,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://if8qb2bwumkb" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 4 - DAY.png" id="4_2ustq"]
 [ext_resource type="Texture2D" uid="uid://8d70dcgp8670" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 5 - DAY.png" id="5_sknsg"]
 [ext_resource type="Texture2D" uid="uid://dvjybmogsm6al" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND TILE - DAY.png" id="6_5ep05"]
-[ext_resource type="PackedScene" uid="uid://cs7if2w7onjat" path="res://Combat/Scenes/combat_player.tscn" id="7_6pmvy"]
+[ext_resource type="PackedScene" uid="uid://cs7if2w7onjat" path="res://Player/Scenes/combat_player.tscn" id="7_6pmvy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fi00"]
 texture = ExtResource("1_0dt3t")
@@ -46,9 +45,6 @@ sources/5 = SubResource("TileSetAtlasSource_omndf")
 
 [node name="test_combat_level" type="Node2D"]
 
-[node name="TransitionManager" parent="." instance=ExtResource("1_1v7kp")]
-visible = false
-
 [node name="CombatUI" parent="." instance=ExtResource("1_bmq5s")]
 
 [node name="Ground" type="TileMapLayer" parent="."]
@@ -57,16 +53,16 @@ tile_set = SubResource("TileSet_e7fix")
 metadata/_edit_lock_ = true
 
 [node name="CombatPlayer" parent="." instance=ExtResource("7_6pmvy")]
-position = Vector2(447, 131)
+position = Vector2(487, 145)
 
 [node name="CompanionSprite" type="Sprite2D" parent="."]
-position = Vector2(449, 207)
+position = Vector2(485, 202)
 texture = ExtResource("2_4b2cx")
 
 [node name="Enemy1" type="Sprite2D" parent="."]
-position = Vector2(159, 130)
+position = Vector2(156, 113)
 texture = ExtResource("3_rv7ma")
 
 [node name="Enemy2" type="Sprite2D" parent="."]
-position = Vector2(159, 198)
+position = Vector2(158, 204)
 texture = ExtResource("3_rv7ma")

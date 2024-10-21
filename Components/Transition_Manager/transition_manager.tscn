@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3pg4x76ml81q"]
+
+[ext_resource type="Script" path="res://Components/Transition_Manager/transition_manager.gd" id="1_du6pq"]
+
+[sub_resource type="Animation" id="Animation_a0kae"]
+resource_name = "Black_To_Better"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_076yh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4vo7e"]
+resource_name = "Supreme_To_Black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"moveToScene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8tmyi"]
+_data = {
+"Black_To_Better": SubResource("Animation_a0kae"),
+"RESET": SubResource("Animation_076yh"),
+"Supreme_To_Black": SubResource("Animation_4vo7e")
+}
+
+[node name="TransitionManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_du6pq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -140.0
+offset_top = -78.0
+offset_right = 765.0
+offset_bottom = 471.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8tmyi")
+}
