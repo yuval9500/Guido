@@ -86,3 +86,8 @@ func endDialogue() -> void:
 	self.visible = false
 	started = false
 	emit_signal("dialogue_finished")
+	
+func endDialogueOnExit() -> void:
+	print("Dialogue finished upon exit")
+	self.visible = false
+	started = false
