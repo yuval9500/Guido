@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://180k6y5ddc82" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 1 - DAY.png" id="1_0dt3t"]
 [ext_resource type="PackedScene" uid="uid://d3pg4x76ml81q" path="res://Components/Transition_Manager/transition_manager.tscn" id="1_1v7kp"]
-[ext_resource type="PackedScene" uid="uid://ch6wri6wxhic4" path="res://Components/CombatUI/combat_manager.tscn" id="1_bmq5s"]
+[ext_resource type="PackedScene" uid="uid://d1fo45brn3yjs" path="res://Components/CombatUI/combat_manager.tscn" id="1_bmq5s"]
 [ext_resource type="Texture2D" uid="uid://bsk1r6fnnal2p" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 2 - DAY.png" id="2_3aqh7"]
 [ext_resource type="Texture2D" uid="uid://bb34nkeo08nuc" path="res://Player/Sprites/Companion_Sprite.png" id="2_4b2cx"]
 [ext_resource type="Texture2D" uid="uid://d1gj6hn0bob17" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 3 - DAY.png" id="3_y2vh6"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://8d70dcgp8670" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 5 - DAY.png" id="5_sknsg"]
 [ext_resource type="Texture2D" uid="uid://dvjybmogsm6al" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND TILE - DAY.png" id="6_5ep05"]
 [ext_resource type="PackedScene" uid="uid://cs7if2w7onjat" path="res://Combat/Scenes/combat_player.tscn" id="7_6pmvy"]
-[ext_resource type="PackedScene" uid="uid://08ntbwq3u77l" path="res://Combat/Scenes/combat_enemy.tscn" id="11_ndspt"]
+[ext_resource type="PackedScene" uid="uid://cx2tu1s3y7434" path="res://Combat/Scenes/combat_enemy.tscn" id="11_ndspt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fi00"]
 texture = ExtResource("1_0dt3t")
