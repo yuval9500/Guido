@@ -22,7 +22,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		print("body exited")
 		canInteract = false 
-		dialogueUI.endDialogue()
+		dialogueUI.endDialogueOnExit()
 
 func _input(event: InputEvent) -> void:
 	dialogue(event)

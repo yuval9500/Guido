@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsmtuj7egyl1v"
-path="res://.godot/imported/check.png-f84d04f2d78e5aed47ab54bd98635d55.ctex"
+uid="uid://dmmvqh602orl0"
+path="res://.godot/imported/wooden-game-buttons-banners_107791-4924-removebg-preview.png-23a570b14b9a93af048bb80fcf3e5213.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menu/sprites/check.png"
-dest_files=["res://.godot/imported/check.png-f84d04f2d78e5aed47ab54bd98635d55.ctex"]
+source_file="res://Menu/sprites/wooden-game-buttons-banners_107791-4924-removebg-preview.png"
+dest_files=["res://.godot/imported/wooden-game-buttons-banners_107791-4924-removebg-preview.png-23a570b14b9a93af048bb80fcf3e5213.ctex"]
 
 [params]
 

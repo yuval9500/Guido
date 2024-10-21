@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://8jq6rkieofgp"]
+[gd_scene load_steps=42 format=4 uid="uid://8jq6rkieofgp"]
 
 [ext_resource type="PackedScene" uid="uid://d0cefv5mkn113" path="res://DialogueUI/scenes/DialogueUI.tscn" id="1_1ge7y"]
 [ext_resource type="PackedScene" uid="uid://cjal7htsu6nmm" path="res://Player/Scenes/player.tscn" id="1_pdwvv"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bsk1r6fnnal2p" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 2 - DAY.png" id="21_ni3xj"]
 [ext_resource type="PackedScene" uid="uid://d3pg4x76ml81q" path="res://Components/Transition_Manager/transition_manager.tscn" id="22_rfl5p"]
 [ext_resource type="Texture2D" uid="uid://d1gj6hn0bob17" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 3 - DAY.png" id="23_23wir"]
+[ext_resource type="PackedScene" uid="uid://do0foelhhoko4" path="res://Components/SpamEvent/spam_event.tscn" id="23_b84f8"]
 [ext_resource type="Texture2D" uid="uid://8d70dcgp8670" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND DETAIL 5 - DAY.png" id="28_os4il"]
 [ext_resource type="Texture2D" uid="uid://dvjybmogsm6al" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/GROUND TILE - DAY.png" id="30_hnicd"]
 [ext_resource type="Texture2D" uid="uid://cc04ilgfr8xp4" path="res://TestLevel/Sprites/TILESET VILLAGE TOP DOWN/TREE 1 - DAY.png" id="56_w5mgl"]
@@ -174,13 +175,16 @@ position = Vector2(174, 186)
 [node name="Player" parent="." instance=ExtResource("1_pdwvv")]
 position = Vector2(273, 189)
 
-[node name="Camera2D" parent="Player" instance=ExtResource("19_73opl")]
-
 [node name="TransitionManager" parent="Player" instance=ExtResource("22_rfl5p")]
 visible = false
 offset_left = -273.0
 offset_top = -189.0
 offset_right = -273.0
 offset_bottom = -189.0
+
+[node name="Camera2D" parent="Player" instance=ExtResource("19_73opl")]
+
+[node name="SpamEvent" parent="." instance=ExtResource("23_b84f8")]
+position = Vector2(77, 292)
 
 [connection signal="moveToCombatSignal" from="CombatArea/CombatZone" to="Player/TransitionManager" method="_on_combat_zone_move_to_combat_signal"]
