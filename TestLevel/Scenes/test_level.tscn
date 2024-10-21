@@ -174,13 +174,13 @@ position = Vector2(174, 186)
 [node name="Player" parent="." instance=ExtResource("1_pdwvv")]
 position = Vector2(273, 189)
 
+[node name="Camera2D" parent="Player" instance=ExtResource("19_73opl")]
+
 [node name="TransitionManager" parent="Player" instance=ExtResource("22_rfl5p")]
 visible = false
 offset_left = -273.0
 offset_top = -189.0
 offset_right = -273.0
 offset_bottom = -189.0
-
-[node name="Camera2D" parent="Player" instance=ExtResource("19_73opl")]
 
 [connection signal="moveToCombatSignal" from="CombatArea/CombatZone" to="Player/TransitionManager" method="_on_combat_zone_move_to_combat_signal"]
