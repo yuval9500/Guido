@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://do0foelhhoko4"]
+
+[ext_resource type="Script" path="res://Components/SpamEvent/spam_event.gd" id="1_6j62b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5rgi"]
+size = Vector2(150, 150)
+
+[node name="SpamEvent" type="Area2D"]
+script = ExtResource("1_6j62b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s5rgi")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -82.0
+offset_top = -131.0
+offset_right = 89.0
+offset_bottom = -56.0
+text = "       You're Falling
+
+Spam Space to escape"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
