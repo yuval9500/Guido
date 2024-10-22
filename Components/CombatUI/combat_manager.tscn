@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ch6wri6wxhic4"]
+[gd_scene load_steps=2 format=3 uid="uid://d1fo45brn3yjs"]
 
-[ext_resource type="Script" path="res://Components/CombatUI/combat_ui.gd" id="1_q54hu"]
+[ext_resource type="Script" path="res://Components/CombatUI/combat_manager.gd" id="1_q54hu"]
 
-[node name="CombatUI" type="Control"]
+[node name="CombatManager" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
