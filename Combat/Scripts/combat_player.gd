@@ -101,6 +101,13 @@ func playerChoseAction(optionBtn: Button):
 func _on_pressed() -> void:
 	emit_signal("choseTarget", self)
 
+func getScalingStat(stat: CombatEnums.Stat):
+	return player.playerStats[stat]
+
 func takeDamage(damage: int):
 	player.takeDamage(damage)
+	updateHealthBar()
+
+func takeHealing(healing: int):
+	player.takeHealing(healing)
 	updateHealthBar()

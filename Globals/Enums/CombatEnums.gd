@@ -1,6 +1,4 @@
-extends Object
-
-class_name CombatEnums
+extends Node
 
 enum EffectType {DAMAGE, HEALING, NONE}
 
