@@ -8,12 +8,10 @@ var combatMenu: ColorRect
 var attackIndicator: ColorRect
 var magicIndicator: ColorRect
 var itemIndicator: ColorRect
-
-var attackOptions: Array = ["Attacks:", "Stormbreaker", "", ""]
-var spellOptions: Array = ["Spells:", "Firebolt", "", ""]
-var itemOptions: Array = ["Items:", "Health potion", "Ring of Fireball", ""]
-
+var healthBar: TextureProgressBar
 var combatOptionBtns: Array
+
+var player: Player
 
 signal clickedCombatMenu
 signal choseAction(player: Node2D, optionBtnText: String)
@@ -25,21 +23,50 @@ func _ready() -> void:
 	attackIndicator = $AttackIndicator
 	magicIndicator = $MagicIndicator
 	itemIndicator = $ItemIndicator
+	healthBar = $HealthBar
+	
 	texture_normal = playerSprite
 	
-	combatOptionBtns = combatMenu.get_children().slice(1,3)
+	initPlayer()
+	initHealthBar()
+	
+	combatOptionBtns = combatMenu.get_children().slice(1,4)
 	for optionBtn in combatOptionBtns:
 		optionBtn.pressed.connect(playerChoseAction.bind(optionBtn))
 
-func updateCombatMenu(options: Array):
+func initPlayer():
+	if (name == "player1"):
+		player = PlayersGlobals.player1
+	elif (name == "player2"):
+		player = PlayersGlobals.player2
+	else:
+		player = PlayersGlobals.defaultPlayer
+
+func initHealthBar():
+	healthBar.max_value = player.maxHealth
+	healthBar.value = player.currHealth
+
+func updateHealthBar():
+	healthBar.value = player.currHealth
+
+func updateCombatMenu(title: String, options: Array):
 	emit_signal("clickedCombatMenu")
-	combatMenu.find_child("Title").text = options[0]
-	combatMenu.find_child("Option1").text = options[1]
-	combatMenu.find_child("Option2").text = options[2]
-	combatMenu.find_child("Option3").text = options[3]
+	combatMenu.find_child("Title").text = title
+	
+	for optionBtn in combatOptionBtns:
+		optionBtn.text = "---"
+	
+	for i in options.size():
+		combatMenu.get_child(i+1).text = options[i].name
+	
+	for optionBtn in combatOptionBtns:
+		if(optionBtn.text == "---"):
+			optionBtn.disabled = true
+		else:
+			optionBtn.disabled = false
 
 func _on_attack_btn_pressed() -> void:
-	updateCombatMenu(attackOptions)
+	updateCombatMenu("Attacks:", player.attacks)
 	combatMenu.visible = true
 	attackIndicator.visible = true
 	magicIndicator.visible = false
@@ -47,7 +74,7 @@ func _on_attack_btn_pressed() -> void:
 
 
 func _on_magic_btn_pressed() -> void:
-	updateCombatMenu(spellOptions)
+	updateCombatMenu("Spells:", player.spells)
 	combatMenu.visible = true
 	attackIndicator.visible = false
 	magicIndicator.visible = true
@@ -55,7 +82,7 @@ func _on_magic_btn_pressed() -> void:
 
 
 func _on_item_btn_pressed() -> void:
-	updateCombatMenu(itemOptions)
+	updateCombatMenu("Items:", player.items)
 	combatMenu.visible = true
 	attackIndicator.visible = false
 	magicIndicator.visible = false
@@ -73,3 +100,7 @@ func playerChoseAction(optionBtn: Button):
 
 func _on_pressed() -> void:
 	emit_signal("choseTarget", self)
+
+func takeDamage(damage: int):
+	player.takeDamage(damage)
+	updateHealthBar()

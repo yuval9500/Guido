@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1fo45brn3yjs"]
 
-[ext_resource type="Script" path="res://Components/CombatUI/combat_manager.gd" id="1_q54hu"]
+[ext_resource type="Script" path="res://Components/CombatManager/combat_manager.gd" id="1_q54hu"]
 
 [node name="CombatManager" type="Control"]
 layout_mode = 3
