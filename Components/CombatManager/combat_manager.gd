@@ -44,15 +44,16 @@ func playerChoseAction(player, actionName):
 func playerChoseTarget(target):
 	if(actingPlayer):
 		chosenTarget = target
+		var scalingStat = actingPlayer.getScalingStat(chosenAction.scaleStat)
 		
 		#do the action:
 		print("player: ", actingPlayer.name,\
 		 " action: ", chosenAction.name, " target: ", chosenTarget.name)
 		
-		#TODO roll a die instead of flat dmg
-		#TODO healing
 		if(chosenAction.effectType == CombatEnums.EffectType.DAMAGE):
-			target.takeDamage(chosenAction.effectDie * chosenAction.numOfEffectDice\
-			 + chosenAction.extraEffectDie)
+			#TODO add roll to hit attack
+			target.takeDamage(chosenAction.effectValueCalc(scalingStat))
+		elif(chosenAction.effectType == CombatEnums.EffectType.HEALING):
+			target.takeHealing(chosenAction.effectValueCalc(scalingStat))
 		
 		unfocusPlayers()

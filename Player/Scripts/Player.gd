@@ -17,12 +17,23 @@ var attacks: Array[Attack]
 var spells: Array[Spell]
 var items: Array[Item]
 
+var playerStats: Dictionary = {\
+CombatEnums.Stat.STRENGTH:0,\
+CombatEnums.Stat.DEXTERITY:0,\
+CombatEnums.Stat.CONSTITUTION:0,\
+CombatEnums.Stat.INTELLIGENCE:0,\
+CombatEnums.Stat.WISDOM:0,\
+CombatEnums.Stat.CHARISMA:0}
+
 func takeDamage(damageNum: int):
 	currHealth -= damageNum
 	checkIfDead()
 
 func takeHealing(healingNum: int):
-	currHealth += healingNum
+	if(isAlive):
+		currHealth += healingNum
+		if(currHealth > maxHealth):
+			currHealth = maxHealth
 
 func checkIfDead():
 	if currHealth <= 0:
@@ -32,7 +43,8 @@ func checkIfDead():
 #Player Constructor
 @warning_ignore("shadowed_variable", "shadowed_variable_base_class")
 func _init(name: String, maxHealth: int, maxLevelOneSpellSlots: int, maxLevelTwoSpellSlots: int,\
-attacks: Array[Attack], spells: Array[Spell], items:Array[Item]) -> void:
+attacks: Array[Attack], spells: Array[Spell], items:Array[Item], strengthValue:int,dexterityValue:int,\
+constitutionValue: int, intelligenceValue: int, wisdomValue:int, charismaValue:int) -> void:
 	self.name = name
 	
 	self.maxHealth = maxHealth
@@ -47,4 +59,11 @@ attacks: Array[Attack], spells: Array[Spell], items:Array[Item]) -> void:
 	self.attacks = attacks
 	self.spells = spells
 	self.items = items
+	
+	self.playerStats[CombatEnums.Stat.STRENGTH] = strengthValue
+	self.playerStats[CombatEnums.Stat.DEXTERITY] = dexterityValue
+	self.playerStats[CombatEnums.Stat.CONSTITUTION] = constitutionValue
+	self.playerStats[CombatEnums.Stat.INTELLIGENCE] = intelligenceValue
+	self.playerStats[CombatEnums.Stat.WISDOM] = wisdomValue
+	self.playerStats[CombatEnums.Stat.CHARISMA] = charismaValue
 	
