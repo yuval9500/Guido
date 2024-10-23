@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cs7if2w7onjat"]
+[gd_scene load_steps=13 format=3 uid="uid://cs7if2w7onjat"]
 
 [ext_resource type="Texture2D" uid="uid://bh40aithq647s" path="res://Player/Sprites/Player_Sprite.png" id="1_33j6v"]
 [ext_resource type="Script" path="res://Combat/Scripts/combat_player.gd" id="1_fu1dw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dmuparfgp0fyt" path="res://Combat/Sprites/ItemBtnNormal.png" id="4_sv5ce"]
 [ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="5_tnfj7"]
 [ext_resource type="Texture2D" uid="uid://cqw5ew6wwwetw" path="res://Combat/Sprites/HealthBarUnder.png" id="7_cjor4"]
+[ext_resource type="PackedScene" uid="uid://b2kymrn7a6oyh" path="res://Combat/Scenes/CombatOption.tscn" id="7_tlpi1"]
 [ext_resource type="Texture2D" uid="uid://bninowusnllcy" path="res://Combat/Sprites/HealthBarOver.png" id="8_1afax"]
 [ext_resource type="Texture2D" uid="uid://bdse6jhhu63u6" path="res://Combat/Sprites/HealthBarProgress.png" id="9_qa10f"]
 
@@ -99,49 +100,38 @@ label_settings = SubResource("LabelSettings_2m8yl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Option1" type="Button" parent="CombatMenu"]
+[node name="Option1" parent="CombatMenu" instance=ExtResource("7_tlpi1")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0859375
-anchor_top = 0.203125
-anchor_right = 0.919271
-anchor_bottom = 0.390625
-offset_left = -0.999998
-offset_right = -1.66671
-offset_bottom = 2.0
-grow_horizontal = 2
-text = "---"
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.08125
+anchor_top = 0.20625
+anchor_right = 0.910416
+anchor_bottom = 0.40625
+offset_left = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
 
-[node name="Option2" type="Button" parent="CombatMenu"]
+[node name="Option2" parent="CombatMenu" instance=ExtResource("7_tlpi1")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0859375
-anchor_top = 0.445313
-anchor_right = 0.919271
-anchor_bottom = 0.632813
-offset_left = -0.999998
-offset_top = 1.0
-offset_right = -1.66671
-offset_bottom = 3.0
-grow_horizontal = 2
-text = "---"
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.08125
+anchor_top = 0.45
+anchor_right = 0.910416
+anchor_bottom = 0.65
+offset_left = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
 
-[node name="Option3" type="Button" parent="CombatMenu"]
+[node name="Option3" parent="CombatMenu" instance=ExtResource("7_tlpi1")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0859375
-anchor_top = 0.695313
-anchor_right = 0.919271
-anchor_bottom = 0.882813
-offset_left = -0.999998
-offset_top = 1.0
-offset_right = -1.66671
-offset_bottom = 3.0
-grow_horizontal = 2
-text = "---"
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.08125
+anchor_top = 0.7
+anchor_right = 0.910416
+anchor_bottom = 0.9
+offset_left = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
 
 [node name="AttackIndicator" type="ColorRect" parent="."]
 visible = false

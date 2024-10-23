@@ -36,24 +36,40 @@ func unfocusPlayers():
 func returnMouseToNormal():
 	Input.set_custom_mouse_cursor(null)
 	
-func playerChoseAction(player, actionName):
+@warning_ignore("shadowed_variable")
+func playerChoseAction(player: CombatPlayer, chosenAction: Action):
 	Input.set_custom_mouse_cursor(mouseTargetPNG, Input.CURSOR_ARROW, Vector2(32, 32))
 	actingPlayer = player
-	chosenAction = ActionArchive.findActionByName(actionName)
+	
+	self.chosenAction = chosenAction
 
 func playerChoseTarget(target):
 	if(actingPlayer):
 		chosenTarget = target
-		var scalingStat = actingPlayer.getScalingStat(chosenAction.scaleStat)
+		var scalingStat = 0
+		if (chosenAction.scaleStat != CombatEnums.Stat.NONE):
+			scalingStat = actingPlayer.getScalingStat(chosenAction.scaleStat)
 		
 		#do the action:
 		print("player: ", actingPlayer.name,\
 		 " action: ", chosenAction.name, " target: ", chosenTarget.name)
 		
+		if(chosenAction is Spell and actingPlayer.canPlayerCast(chosenAction)):
+			actingPlayer.removeSpellSlots(chosenAction.spellLevel)
+		
 		if(chosenAction.effectType == CombatEnums.EffectType.DAMAGE):
-			#TODO add roll to hit attack
-			target.takeDamage(chosenAction.effectValueCalc(scalingStat))
+			if(attackRoll(scalingStat, target)):
+				target.takeDamage(chosenAction.effectValueCalc(scalingStat))
 		elif(chosenAction.effectType == CombatEnums.EffectType.HEALING):
 			target.takeHealing(chosenAction.effectValueCalc(scalingStat))
 		
+		#TODO if item -> reduce numOfUses -> if 0 delete item
+		
 		unfocusPlayers()
+
+func attackRoll(scalingStat: int, target):
+	var attackRollValue = randi_range(1,20) + scalingStat + 2
+	print(attackRollValue, " vs ", target.getArmorClass())
+	if (attackRollValue >= target.getArmorClass()):
+		return true
+	return false

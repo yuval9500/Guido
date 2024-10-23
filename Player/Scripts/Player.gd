@@ -4,14 +4,13 @@ class_name Player
 
 var isAlive: int = true
 
+var armorClass: int
+
 var maxHealth: int
 var currHealth: int
 
-var maxLevelOneSpellSlots: int
-var currLevelOneSpellSlots: int
-
-var maxLevelTwoSpellSlots: int
-var currLevelTwoSpellSlots: int
+var maxSpellSlots: int
+var currSpellSlots: int
 
 var attacks: Array[Attack]
 var spells: Array[Spell]
@@ -40,22 +39,29 @@ func checkIfDead():
 		currHealth = 0
 		isAlive = false
 
+func canCastSpell(spellToCast: Spell):
+	if (currSpellSlots >= spellToCast.spellLevel):
+		return true
+	return false
+
+func removeSpellSlots(numOfSlots):
+	currSpellSlots -= numOfSlots
+
 #Player Constructor
 @warning_ignore("shadowed_variable", "shadowed_variable_base_class")
-func _init(name: String, maxHealth: int, maxLevelOneSpellSlots: int, maxLevelTwoSpellSlots: int,\
+func _init(name: String, armorClass: int, maxHealth: int, maxSpellSlots: int,\
 attacks: Array[Attack], spells: Array[Spell], items:Array[Item], strengthValue:int,dexterityValue:int,\
 constitutionValue: int, intelligenceValue: int, wisdomValue:int, charismaValue:int) -> void:
 	self.name = name
 	
+	self.armorClass = armorClass
+	
 	self.maxHealth = maxHealth
 	self.currHealth = maxHealth
 	
-	self.maxLevelOneSpellSlots = maxLevelOneSpellSlots
-	self.maxLevelTwoSpellSlots = maxLevelTwoSpellSlots
-	
-	self.currLevelOneSpellSlots = maxLevelOneSpellSlots
-	self.currLevelTwoSpellSlots = maxLevelTwoSpellSlots
-	
+	self.maxSpellSlots = maxSpellSlots
+	self.currSpellSlots = maxSpellSlots
+
 	self.attacks = attacks
 	self.spells = spells
 	self.items = items
