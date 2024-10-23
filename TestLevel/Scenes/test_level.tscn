@@ -177,7 +177,6 @@ position = Vector2(174, 186)
 position = Vector2(273, 189)
 
 [node name="TransitionManager" parent="Player" instance=ExtResource("22_rfl5p")]
-visible = false
 offset_left = -273.0
 offset_top = -189.0
 offset_right = -273.0

@@ -70,6 +70,8 @@ _data = {
 }
 
 [node name="TransitionManager" type="Control"]
+visible = false
+top_level = true
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_du6pq")

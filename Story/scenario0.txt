@@ -1,0 +1,10 @@
+Player1$ Oh m... m..  man , I'm so drunk. I can't remember anything.
+Player2$ Oh man, me too... wait, what's your name?
+Player1$ Ummm...
+Player1$ I think it's P... P... Pyrrhus, Pyrrhus the Bold.
+Pyrrhus the Bold$ What's yours?
+Player2$ Mine starts with an "L," that's for sure.
+Player2$ Maybe Lysander, Lysander the Swift. Yeah, that’ll be the name.
+Pyrrhus the Bold$ Co.. co.. cool beans.
+Lysander the Swift$ Hey, let's talk to that bald dude and see where we are.
+Pyrrhus the Bold$ Sure.

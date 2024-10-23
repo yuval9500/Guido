@@ -47,6 +47,7 @@ sources/5 = SubResource("TileSetAtlasSource_omndf")
 [node name="test_combat_level" type="Node2D"]
 
 [node name="TransitionManager" parent="." instance=ExtResource("1_1v7kp")]
+visible = false
 
 [node name="CombatManager" parent="." instance=ExtResource("1_bmq5s")]
 anchors_preset = 0

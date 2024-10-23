@@ -6,7 +6,7 @@ var players: Array
 var enemies: Array
 
 var actingPlayer: CombatPlayer
-var chosenAction: String
+var chosenAction: Action
 var chosenTarget
 
 func _ready() -> void:
@@ -27,7 +27,7 @@ func _on_unfocus_btn_pressed() -> void:
 func unfocusPlayers():
 	returnMouseToNormal()
 	actingPlayer = null
-	chosenAction = ""
+	chosenAction = null
 	chosenTarget = null
 	
 	for player in players:
@@ -36,14 +36,24 @@ func unfocusPlayers():
 func returnMouseToNormal():
 	Input.set_custom_mouse_cursor(null)
 	
-func playerChoseAction(player, actionText):
+func playerChoseAction(player, actionName):
 	Input.set_custom_mouse_cursor(mouseTargetPNG, Input.CURSOR_ARROW, Vector2(32, 32))
 	actingPlayer = player
-	chosenAction = actionText
+	chosenAction = ActionArchive.findActionByName(actionName)
 
 func playerChoseTarget(target):
 	if(actingPlayer):
 		chosenTarget = target
+		var scalingStat = actingPlayer.getScalingStat(chosenAction.scaleStat)
+		
 		#do the action:
-		print("player: ", actingPlayer.name, " action: ", chosenAction, " target: ", chosenTarget.name)
+		print("player: ", actingPlayer.name,\
+		 " action: ", chosenAction.name, " target: ", chosenTarget.name)
+		
+		if(chosenAction.effectType == CombatEnums.EffectType.DAMAGE):
+			#TODO add roll to hit attack
+			target.takeDamage(chosenAction.effectValueCalc(scalingStat))
+		elif(chosenAction.effectType == CombatEnums.EffectType.HEALING):
+			target.takeHealing(chosenAction.effectValueCalc(scalingStat))
+		
 		unfocusPlayers()
