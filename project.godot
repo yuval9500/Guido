@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 StoryManager="*res://Globals/StoryManager/StoryManager.gd"
 ActionArchive="*res://Globals/GlobalVariables/ActionArchive.gd"
 CombatEnums="*res://Globals/Enums/CombatEnums.gd"
+PlayerGlobals="*res://Globals/GlobalVariables/PlayersGlobalVariables.gd"
+EnemyArchive="*res://Globals/GlobalVariables/EnemyArchive.gd"
 
 [debug]
 

@@ -5,6 +5,8 @@ var mouseTargetPNG = load("res://Combat/Sprites/target.png")
 var players: Array
 var enemies: Array
 
+var activePlayers: Array
+
 var actingPlayer: CombatPlayer
 var chosenAction: Action
 var chosenTarget
@@ -20,6 +22,13 @@ func _ready() -> void:
 	
 	for enemy in enemies:
 		enemy.choseTarget.connect(playerChoseTarget)
+	
+	startPlayersTurn()
+
+func startPlayersTurn():
+	activePlayers = players.duplicate()
+	for player in activePlayers:
+		player.startTurn()
 
 func _on_unfocus_btn_pressed() -> void:
 	unfocusPlayers()
@@ -63,9 +72,22 @@ func playerChoseTarget(target):
 		elif(chosenAction.effectType == CombatEnums.EffectType.HEALING):
 			target.takeHealing(chosenAction.effectValueCalc(scalingStat))
 		
-		#TODO if item -> reduce numOfUses -> if 0 delete item
+		if(chosenAction is Item):
+			actingPlayer.reduceUseOfItem(chosenAction)
+		
+		actingPlayer.endTurn()
+		removeActivePlayer(actingPlayer)
+		checkPlayersTurn()
 		
 		unfocusPlayers()
+
+func removeActivePlayer(player: CombatPlayer):
+	activePlayers.erase(player)
+
+func checkPlayersTurn():
+	if(activePlayers.is_empty()):
+		#TODO wait until enemies turn
+		startPlayersTurn()
 
 func attackRoll(scalingStat: int, target):
 	var attackRollValue = randi_range(1,20) + scalingStat + 2

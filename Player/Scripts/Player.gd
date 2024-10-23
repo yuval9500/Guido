@@ -26,7 +26,7 @@ CombatEnums.Stat.CHARISMA:0}
 
 func takeDamage(damageNum: int):
 	currHealth -= damageNum
-	checkIfDead()
+	updateIsAlive()
 
 func takeHealing(healingNum: int):
 	if(isAlive):
@@ -34,7 +34,7 @@ func takeHealing(healingNum: int):
 		if(currHealth > maxHealth):
 			currHealth = maxHealth
 
-func checkIfDead():
+func updateIsAlive():
 	if currHealth <= 0:
 		currHealth = 0
 		isAlive = false
@@ -46,6 +46,15 @@ func canCastSpell(spellToCast: Spell):
 
 func removeSpellSlots(numOfSlots):
 	currSpellSlots -= numOfSlots
+
+func reduceUseOfItem(usedItem: Item):
+	var itemInArray = items[items.find(usedItem)]
+	itemInArray.numOfUses -= 1
+	if(itemInArray.numOfUses == 0):
+		removeItem(itemInArray)
+
+func removeItem(itemToRemove: Item):
+	items.erase(itemToRemove)
 
 #Player Constructor
 @warning_ignore("shadowed_variable", "shadowed_variable_base_class")
