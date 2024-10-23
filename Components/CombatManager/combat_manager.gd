@@ -63,7 +63,8 @@ func playerChoseTarget(target):
 		elif(chosenAction.effectType == CombatEnums.EffectType.HEALING):
 			target.takeHealing(chosenAction.effectValueCalc(scalingStat))
 		
-		#TODO if item -> reduce numOfUses -> if 0 delete item
+		if(chosenAction is Item):
+			actingPlayer.reduceUseOfItem(chosenAction)
 		
 		unfocusPlayers()
 

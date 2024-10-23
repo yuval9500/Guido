@@ -125,3 +125,6 @@ func takeDamage(damage: int):
 func takeHealing(healing: int):
 	player.takeHealing(healing)
 	updateHealthBar()
+
+func reduceUseOfItem(usedItem: Item):
+	player.reduceUseOfItem(usedItem)
