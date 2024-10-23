@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 var sceneToMove: String
 
@@ -16,8 +16,13 @@ func transition_to_supreme():
 func moveToScene():
 	get_tree().change_scene_to_file(sceneToMove)
 
+func hideMe():
+	visible = false
 
-func _on_combat_zone_move_to_combat_signal(scene: String) -> void:
+func showMe():
+	visible = true
+
+func transitionToScene(scene: String) -> void:
 	sceneToMove = scene
 	transition_to_black()
 	

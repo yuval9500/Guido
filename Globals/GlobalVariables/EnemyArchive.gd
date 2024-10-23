@@ -4,4 +4,4 @@ var testEnemyActions: Array[Action] = [ActionArchive.quarterstaff, ActionArchive
 
 var testEnemy: Enemy:
 	get:
-		return Enemy.new("test", 20, 10, testEnemyActions)
+		return Enemy.new("test", 20, 10, testEnemyActions, 0,0,0,0,0,0)
