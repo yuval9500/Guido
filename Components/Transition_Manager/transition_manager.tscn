@@ -17,6 +17,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hideMe"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_076yh"]
 length = 0.001
@@ -54,9 +68,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"showMe"
+}, {
 "args": [],
 "method": &"moveToScene"
 }]
@@ -69,19 +86,14 @@ _data = {
 "Supreme_To_Black": SubResource("Animation_4vo7e")
 }
 
-[node name="TransitionManager" type="Control"]
-visible = false
-top_level = true
-layout_mode = 3
-anchors_preset = 0
+[node name="TransitionManager" type="CanvasLayer"]
 script = ExtResource("1_du6pq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -140.0
-offset_top = -78.0
-offset_right = 765.0
-offset_bottom = 471.0
+offset_left = -116.0
+offset_top = -82.0
+offset_right = 789.0
+offset_bottom = 467.0
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

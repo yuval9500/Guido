@@ -6,6 +6,7 @@ var players: Array
 var enemies: Array
 
 var activePlayers: Array
+var alivePlayers: Array
 
 var actingPlayer: CombatPlayer
 var chosenAction: Action
@@ -15,20 +16,26 @@ func _ready() -> void:
 	players = get_tree().get_root().find_child("Players",true,false).get_children()
 	enemies = get_tree().get_root().find_child("Enemies",true,false).get_children()
 	
+	alivePlayers = players.duplicate()
+	
 	for player in players:
 		player.clickedCombatMenu.connect(unfocusPlayers)
 		player.choseAction.connect(playerChoseAction)
 		player.choseTarget.connect(playerChoseTarget)
+		player.playerDeath.connect(playerDeath)
 	
 	for enemy in enemies:
 		enemy.choseTarget.connect(playerChoseTarget)
+		enemy.enemyDeath.connect(enemyDeath)
+		enemy.enemyAttack.connect(enemyAttack)
 	
 	startPlayersTurn()
 
 func startPlayersTurn():
-	activePlayers = players.duplicate()
+	activePlayers = alivePlayers.duplicate()
 	for player in activePlayers:
 		player.startTurn()
+	print("player turn start")
 
 func _on_unfocus_btn_pressed() -> void:
 	unfocusPlayers()
@@ -37,7 +44,6 @@ func unfocusPlayers():
 	returnMouseToNormal()
 	actingPlayer = null
 	chosenAction = null
-	chosenTarget = null
 	
 	for player in players:
 		player.unfocusCombatMenu()
@@ -54,44 +60,86 @@ func playerChoseAction(player: CombatPlayer, chosenAction: Action):
 
 func playerChoseTarget(target):
 	if(actingPlayer):
-		chosenTarget = target
-		var scalingStat = 0
-		if (chosenAction.scaleStat != CombatEnums.Stat.NONE):
-			scalingStat = actingPlayer.getScalingStat(chosenAction.scaleStat)
-		
-		#do the action:
-		print("player: ", actingPlayer.name,\
-		 " action: ", chosenAction.name, " target: ", chosenTarget.name)
-		
 		if(chosenAction is Spell and actingPlayer.canPlayerCast(chosenAction)):
 			actingPlayer.removeSpellSlots(chosenAction.spellLevel)
 		
-		if(chosenAction.effectType == CombatEnums.EffectType.DAMAGE):
-			if(attackRoll(scalingStat, target)):
-				target.takeDamage(chosenAction.effectValueCalc(scalingStat))
-		elif(chosenAction.effectType == CombatEnums.EffectType.HEALING):
-			target.takeHealing(chosenAction.effectValueCalc(scalingStat))
+		fullActionProcess(actingPlayer, target, chosenAction)
 		
-		if(chosenAction is Item):
-			actingPlayer.reduceUseOfItem(chosenAction)
-		
-		actingPlayer.endTurn()
-		removeActivePlayer(actingPlayer)
-		checkPlayersTurn()
-		
+		endPlayerTurn(actingPlayer)
 		unfocusPlayers()
+		
+		if (!checkPlayersWin()):
+			checkCombatTurn()
 
-func removeActivePlayer(player: CombatPlayer):
-	activePlayers.erase(player)
+func enemyAttack(enemy: CombatEnemy, targetPlayer: CombatPlayer, action: Action):
+	fullActionProcess(enemy, targetPlayer, action)
+	
+	checkEnemiesWin()
 
-func checkPlayersTurn():
-	if(activePlayers.is_empty()):
-		#TODO wait until enemies turn
-		startPlayersTurn()
+func checkPlayersWin() -> bool:
+	if(enemies.is_empty()):
+		for player in activePlayers:
+			endPlayerTurn(player)
+		print("You Win!")
+		#TODO go back to the map you came from at the same location
+		return true
+	return false
+
+func checkEnemiesWin():
+	if(alivePlayers.is_empty()):
+		print("You Dieded!")
+		#TODO think about what happens here, maybe load last save?
+
+func fullActionProcess(performer, target, action: Action):
+	#do the action:
+	print("performer:", performer.name, " used action:", action.name, " to target:", target.name)
+	
+	var scalingStat = 0
+	if (action.scaleStat != CombatEnums.Stat.NONE):
+		scalingStat = performer.getScalingStat(action.scaleStat)
+	#Damage
+	if(action.effectType == CombatEnums.EffectType.DAMAGE):
+		#Attack roll
+		if(attackRoll(scalingStat, target)):
+			#Damage Roll
+			target.takeDamage(action.effectValueCalc(scalingStat))
+	#Healing
+	elif(action.effectType == CombatEnums.EffectType.HEALING):
+		target.takeHealing(action.effectValueCalc(scalingStat))
+	
+	if(action is Item):
+		performer.reduceUseOfItem(chosenAction)
 
 func attackRoll(scalingStat: int, target):
 	var attackRollValue = randi_range(1,20) + scalingStat + 2
-	print(attackRollValue, " vs ", target.getArmorClass())
+	print("Attack roll:", attackRollValue, " vs AC:", target.getArmorClass())
 	if (attackRollValue >= target.getArmorClass()):
+		print("Hit")
 		return true
+	print("No hit")
 	return false
+
+func endPlayerTurn(player: CombatPlayer):
+	activePlayers.erase(player)
+	player.endTurn()
+
+func checkCombatTurn():
+	if(activePlayers.is_empty()):
+		enemiesTurn()
+		startPlayersTurn()
+
+func enemiesTurn():
+	print("Enemies Turn")
+	for enemy in enemies:
+		if (!alivePlayers.is_empty()):
+			enemy.playTurn(alivePlayers)
+
+func playerDeath(player: CombatPlayer):
+	alivePlayers.erase(player)
+	endPlayerTurn(player)
+	checkCombatTurn()
+	player.disabled = true
+
+func enemyDeath(enemy: CombatEnemy):
+	enemies.erase(enemy)
+	enemy.queue_free()

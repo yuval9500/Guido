@@ -17,6 +17,7 @@ var player: Player
 signal clickedCombatMenu
 signal choseAction(player: Node2D, chosenAction: Action)
 signal choseTarget(target: CombatPlayer)
+signal playerDeath(player)
 
 # Called when the node enters the scene tree for the first time.
 func _enter_tree() -> void:
@@ -129,6 +130,9 @@ func removeSpellSlots(numOfSlots: int):
 func takeDamage(damage: int):
 	player.takeDamage(damage)
 	updateHealthBar()
+	
+	if(!player.isAlive):
+		emit_signal("playerDeath", self)
 
 func takeHealing(healing: int):
 	player.takeHealing(healing)
