@@ -26,7 +26,7 @@ CombatEnums.Stat.CHARISMA:0}
 
 func takeDamage(damageNum: int):
 	currHealth -= damageNum
-	checkIfDead()
+	updateIsAlive()
 
 func takeHealing(healingNum: int):
 	if(isAlive):
@@ -34,7 +34,7 @@ func takeHealing(healingNum: int):
 		if(currHealth > maxHealth):
 			currHealth = maxHealth
 
-func checkIfDead():
+func updateIsAlive():
 	if currHealth <= 0:
 		currHealth = 0
 		isAlive = false

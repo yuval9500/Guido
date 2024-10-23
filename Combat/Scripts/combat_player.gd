@@ -4,6 +4,7 @@ class_name CombatPlayer
 
 @export var playerSprite: Resource = preload("res://Player/Sprites/Player_Sprite.png")
 
+var actionMenu: Control
 var combatMenu: ColorRect
 var attackIndicator: ColorRect
 var magicIndicator: ColorRect
@@ -18,7 +19,8 @@ signal choseAction(player: Node2D, chosenAction: Action)
 signal choseTarget(target: CombatPlayer)
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _enter_tree() -> void:
+	actionMenu = $Actions
 	combatMenu = $CombatMenu
 	attackIndicator = $AttackIndicator
 	magicIndicator = $MagicIndicator
@@ -36,15 +38,21 @@ func _ready() -> void:
 
 func initPlayer():
 	if (name == "player1"):
-		player = PlayersGlobals.player1
+		player = PlayerGlobals.player1
 	elif (name == "player2"):
-		player = PlayersGlobals.player2
+		player = PlayerGlobals.player2
 	else:
-		player = PlayersGlobals.defaultPlayer
+		player = PlayerGlobals.defaultPlayer
 
 func initHealthBar():
 	healthBar.max_value = player.maxHealth
 	healthBar.value = player.currHealth
+
+func startTurn():
+	actionMenu.visible = true
+
+func endTurn():
+	actionMenu.visible = false
 
 func updateHealthBar():
 	healthBar.value = player.currHealth

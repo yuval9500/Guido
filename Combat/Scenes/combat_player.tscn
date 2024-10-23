@@ -27,6 +27,7 @@ texture_normal = ExtResource("1_33j6v")
 script = ExtResource("1_fu1dw")
 
 [node name="Actions" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
