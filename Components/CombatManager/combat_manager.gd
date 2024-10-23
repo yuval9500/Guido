@@ -1,5 +1,7 @@
 extends Control
 
+var currentScene
+
 var mouseTargetPNG = load("res://Combat/Sprites/target.png")
 
 var players: Array
@@ -13,6 +15,7 @@ var chosenAction: Action
 var chosenTarget
 
 func _ready() -> void:
+	currentScene = get_tree().current_scene.scene_file_path
 	players = get_tree().get_root().find_child("Players",true,false).get_children()
 	enemies = get_tree().get_root().find_child("Enemies",true,false).get_children()
 	
@@ -81,14 +84,15 @@ func checkPlayersWin() -> bool:
 		for player in activePlayers:
 			endPlayerTurn(player)
 		print("You Win!")
-		#TODO go back to the map you came from at the same location
+		$"../TransitionManager".transitionToScene(PlayerGlobals.playersPreviousScene, currentScene)
 		return true
 	return false
 
 func checkEnemiesWin():
 	if(alivePlayers.is_empty()):
 		print("You Dieded!")
-		#TODO think about what happens here, maybe load last save?
+		#TODO maybe change to something else, gotta figure out what to do when you die in combat
+		$"../TransitionManager".transitionToScene(PlayerGlobals.playersPreviousScene, currentScene)
 
 func fullActionProcess(performer, target, action: Action):
 	#do the action:

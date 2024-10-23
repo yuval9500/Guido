@@ -14,3 +14,6 @@ var player1: Player = Player.new("player1", 10, 15, 10, player1Attacks, player1S
 2,2,2,2,2,2)
 var player2: Player = Player.new("player2", 10, 10, 8, player2Attacks, player2Spells, player2Items,\
 1,1,1,1,1,1)
+
+#TODO remember your position within the previousScene
+var playersPreviousScene: String
