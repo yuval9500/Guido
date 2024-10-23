@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2kymrn7a6oyh"]
+
+[ext_resource type="Script" path="res://Combat/Scripts/combat_option.gd" id="1_7rvpb"]
+
+[node name="Option1" type="Button"]
+anchors_preset = -1
+anchor_left = 0.0859375
+anchor_top = 0.203125
+anchor_right = 0.919271
+anchor_bottom = 0.390625
+offset_left = -0.999998
+offset_right = -1.66671
+offset_bottom = 2.0
+grow_horizontal = 2
+text = "---"
+script = ExtResource("1_7rvpb")
+metadata/_edit_use_anchors_ = true
