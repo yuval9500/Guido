@@ -28,7 +28,8 @@ func _enter_tree() -> void:
 	itemIndicator = $ItemIndicator
 	healthBar = $HealthBar
 	
-	texture_normal = playerSprite
+	if (playerSprite):
+		texture_normal = playerSprite
 	
 	initPlayer()
 	initHealthBar()
