@@ -19,6 +19,9 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func get_input():
+	if GameManager.isPaused:
+		return
+		
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	
 	if input_direction != Vector2.ZERO:
