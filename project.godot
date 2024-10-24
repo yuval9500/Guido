@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 StoryManager="*res://Globals/StoryManager/StoryManager.gd"
 ActionArchive="*res://Globals/GlobalVariables/ActionArchive.gd"
 CombatEnums="*res://Globals/Enums/CombatEnums.gd"
+GameManager="*res://Globals/GameManager/GameManager.gd"
 
 [debug]
 
@@ -78,6 +79,7 @@ space={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Companion"
+2d_physics/layer_3="Objects"
 
 [rendering]
 
