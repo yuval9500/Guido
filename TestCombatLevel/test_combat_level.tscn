@@ -83,11 +83,9 @@ offset_left = 183.0
 offset_top = 117.0
 offset_right = 207.0
 offset_bottom = 149.0
-enemyHP = null
 
 [node name="CombatEnemy2" parent="Enemies" instance=ExtResource("11_ndspt")]
 offset_left = 181.0
 offset_top = 212.0
 offset_right = 205.0
 offset_bottom = 244.0
-enemyHP = null
