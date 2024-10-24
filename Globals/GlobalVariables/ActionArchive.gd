@@ -15,10 +15,14 @@ var cureWounds: Spell = Spell.new("Cure Wounds", 1,\
 CombatEnums.Stat.INTELLIGENCE, CombatEnums.EffectType.HEALING,2, 8)
 
 #Items
-var healingPotion: Item = Item.new("Healing Potion", 1, CombatEnums.Stat.NONE,\
+var healingPotion: Item:
+	get:
+		return Item.new("Healing Potion", 1, CombatEnums.Stat.NONE,\
 CombatEnums.EffectType.HEALING, 3, 4)
 
-var ringOfFireball: Item = Item.new("Ring of Fireball", 1, CombatEnums.Stat.INTELLIGENCE,\
+var ringOfFireball: Item:
+	get:
+		return Item.new("Ring of Fireball", 1, CombatEnums.Stat.INTELLIGENCE,\
 CombatEnums.EffectType.DAMAGE, 8, 6)
 
 var action :Dictionary = {"Stormbreaker":stormbreaker, "Quarterstaff":quarterstaff,\

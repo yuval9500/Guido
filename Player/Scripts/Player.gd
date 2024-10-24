@@ -4,14 +4,13 @@ class_name Player
 
 var isAlive: int = true
 
+var armorClass: int
+
 var maxHealth: int
 var currHealth: int
 
-var maxLevelOneSpellSlots: int
-var currLevelOneSpellSlots: int
-
-var maxLevelTwoSpellSlots: int
-var currLevelTwoSpellSlots: int
+var maxSpellSlots: int
+var currSpellSlots: int
 
 var attacks: Array[Attack]
 var spells: Array[Spell]
@@ -27,7 +26,7 @@ CombatEnums.Stat.CHARISMA:0}
 
 func takeDamage(damageNum: int):
 	currHealth -= damageNum
-	checkIfDead()
+	updateIsAlive()
 
 func takeHealing(healingNum: int):
 	if(isAlive):
@@ -35,27 +34,43 @@ func takeHealing(healingNum: int):
 		if(currHealth > maxHealth):
 			currHealth = maxHealth
 
-func checkIfDead():
+func updateIsAlive():
 	if currHealth <= 0:
 		currHealth = 0
 		isAlive = false
 
+func canCastSpell(spellToCast: Spell):
+	if (currSpellSlots >= spellToCast.spellLevel):
+		return true
+	return false
+
+func removeSpellSlots(numOfSlots):
+	currSpellSlots -= numOfSlots
+
+func reduceUseOfItem(usedItem: Item):
+	var itemInArray = items[items.find(usedItem)]
+	itemInArray.numOfUses -= 1
+	if(itemInArray.numOfUses == 0):
+		removeItem(itemInArray)
+
+func removeItem(itemToRemove: Item):
+	items.erase(itemToRemove)
+
 #Player Constructor
 @warning_ignore("shadowed_variable", "shadowed_variable_base_class")
-func _init(name: String, maxHealth: int, maxLevelOneSpellSlots: int, maxLevelTwoSpellSlots: int,\
+func _init(name: String, armorClass: int, maxHealth: int, maxSpellSlots: int,\
 attacks: Array[Attack], spells: Array[Spell], items:Array[Item], strengthValue:int,dexterityValue:int,\
 constitutionValue: int, intelligenceValue: int, wisdomValue:int, charismaValue:int) -> void:
 	self.name = name
 	
+	self.armorClass = armorClass
+	
 	self.maxHealth = maxHealth
 	self.currHealth = maxHealth
 	
-	self.maxLevelOneSpellSlots = maxLevelOneSpellSlots
-	self.maxLevelTwoSpellSlots = maxLevelTwoSpellSlots
-	
-	self.currLevelOneSpellSlots = maxLevelOneSpellSlots
-	self.currLevelTwoSpellSlots = maxLevelTwoSpellSlots
-	
+	self.maxSpellSlots = maxSpellSlots
+	self.currSpellSlots = maxSpellSlots
+
 	self.attacks = attacks
 	self.spells = spells
 	self.items = items

@@ -1,12 +1,11 @@
-extends Control
+extends CanvasLayer
 
-var sceneToMove: String
+var newScene: String
 
 func _ready():
-	visible = true
+	showMe()
 	transition_to_supreme()
 
-	
 func transition_to_black():
 	$"AnimationPlayer".play("Supreme_To_Black")
 
@@ -14,10 +13,17 @@ func transition_to_supreme():
 	$"AnimationPlayer".play("Black_To_Better")
 
 func moveToScene():
-	get_tree().change_scene_to_file(sceneToMove)
+	get_tree().change_scene_to_file(newScene)
 
+func hideMe():
+	visible = false
 
-func _on_combat_zone_move_to_combat_signal(scene: String) -> void:
-	sceneToMove = scene
+func showMe():
+	visible = true
+
+func transitionToScene(sceneToMoveTo: String, currentScene: String) -> void:
+	PlayerGlobals.playersPreviousScene = currentScene
+	print("Combat Encounter!")
+	newScene = sceneToMoveTo
 	transition_to_black()
 	
