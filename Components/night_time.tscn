@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cj7onkmgjdrjj"]
+
+[node name="NightTime" type="DirectionalLight2D"]
+color = Color(1, 1, 0.784314, 1)
+energy = 0.75
+blend_mode = 1
