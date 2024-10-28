@@ -23,6 +23,7 @@ CombatEnums="*res://Globals/Enums/CombatEnums.gd"
 GameManager="*res://Globals/GameManager/GameManager.gd"
 PlayerGlobals="*res://Globals/GlobalVariables/PlayersGlobalVariables.gd"
 EnemyArchive="*res://Globals/GlobalVariables/EnemyArchive.gd"
+AudioManager="*res://Globals/AudioManager/AudioManager.gd"
 
 [debug]
 

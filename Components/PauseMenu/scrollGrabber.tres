@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bdiyfp77xwrqa"]
+
+[ext_resource type="Texture2D" uid="uid://sx11ypnuk3gg" path="res://Components/PauseMenu/sprites/circle-64.png" id="1_thrhd"]
+
+[resource]
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_thrhd")

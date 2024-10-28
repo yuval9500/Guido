@@ -1,0 +1,328 @@
+[gd_scene load_steps=17 format=3 uid="uid://bmebacn235xqt"]
+
+[ext_resource type="Script" path="res://Components/PauseMenu/scripts/pause_menu.gd" id="1_5w0lb"]
+[ext_resource type="Shader" path="res://Components/PauseMenu/PopUpMenu.gdshader" id="1_fwomy"]
+[ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_eytcy"]
+[ext_resource type="StyleBox" uid="uid://bdiyfp77xwrqa" path="res://Components/PauseMenu/scrollGrabber.tres" id="4_mix46"]
+[ext_resource type="Texture2D" uid="uid://sx11ypnuk3gg" path="res://Components/PauseMenu/sprites/circle-64.png" id="5_j5mvu"]
+[ext_resource type="AudioStream" uid="uid://dfte08e0r6kfn" path="res://Audio/Menu_Music.mp3" id="5_oqwrj"]
+[ext_resource type="AudioStream" uid="uid://dgv7ef73jygj8" path="res://Audio/Sfx/menuBtn.mp3" id="6_xwr7x"]
+
+[sub_resource type="Theme" id="Theme_4x3a3"]
+default_font = ExtResource("2_eytcy")
+default_font_size = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pqyiy"]
+shader = ExtResource("1_fwomy")
+shader_parameter/lod = 5.0
+shader_parameter/mix_percentage = 0.3
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8u2w"]
+font = ExtResource("2_eytcy")
+font_size = 48
+shadow_size = 5
+shadow_color = Color(1, 1, 1, 0.113725)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ek858"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2ve6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byshc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_megji"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o0ous"]
+font = ExtResource("2_eytcy")
+font_size = 18
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8bkya"]
+content_margin_left = 8.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 8.0
+texture = ExtResource("5_j5mvu")
+
+[node name="PauseMenu" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_5w0lb")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4x3a3")
+
+[node name="BlurScreen" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_pqyiy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.168627)
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -103.0
+offset_right = 98.5
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_o8u2w")
+
+[node name="MenuGroup" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ResumeBtn" type="Button" parent="Control/MenuGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -26.0
+offset_right = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.992157, 0.721569, 0.0117647, 1)
+theme_override_fonts/font = ExtResource("2_eytcy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ek858")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v2ve6")
+text = "Resume"
+flat = true
+
+[node name="AudioBtn" type="Button" parent="Control/MenuGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = 9.0
+offset_right = 35.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.992157, 0.721569, 0.0117647, 1)
+theme_override_fonts/font = ExtResource("2_eytcy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_byshc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_megji")
+text = "Audio"
+flat = true
+
+[node name="Quit" type="Button" parent="Control/MenuGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = 49.0
+offset_right = 35.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.992157, 0.721569, 0.0117647, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_eytcy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_byshc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_megji")
+text = "Quit"
+flat = true
+
+[node name="OptionsGroup" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Music" type="Control" parent="OptionsGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = 17.0
+offset_right = -26.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="OptionsGroup/Music"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -51.0
+offset_right = -87.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_o0ous")
+
+[node name="MusicScrollBar" type="HScrollBar" parent="OptionsGroup/Music"]
+texture_filter = 2
+custom_minimum_size = Vector2(250, 15)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -50.0
+offset_right = 175.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/grabber = ExtResource("4_mix46")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_8bkya")
+theme_override_styles/grabber_pressed = ExtResource("4_mix46")
+min_value = -80.0
+max_value = 0.0
+rounded = true
+
+[node name="SFX" type="Control" parent="OptionsGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = 17.0
+offset_right = -26.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="OptionsGroup/SFX"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -12.0
+offset_right = -87.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_o0ous")
+
+[node name="SfxScrollBar" type="HScrollBar" parent="OptionsGroup/SFX"]
+texture_filter = 2
+custom_minimum_size = Vector2(250, 15)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -11.0
+offset_right = 175.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/grabber = ExtResource("4_mix46")
+theme_override_styles/grabber_highlight = ExtResource("4_mix46")
+theme_override_styles/grabber_pressed = ExtResource("4_mix46")
+min_value = -80.0
+max_value = 40.0
+rounded = true
+
+[node name="CancelBtn" type="Button" parent="OptionsGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 10.5
+offset_top = 57.0
+offset_right = 89.5
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.992157, 0.721569, 0.0117647, 1)
+theme_override_fonts/font = ExtResource("2_eytcy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_byshc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_megji")
+text = "Cancel"
+flat = true
+
+[node name="ConfirmBtn" type="Button" parent="OptionsGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = 57.0
+offset_right = -10.5
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.992157, 0.721569, 0.0117647, 1)
+theme_override_fonts/font = ExtResource("2_eytcy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_byshc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_megji")
+text = "Confirm"
+flat = true
+alignment = 0
+
+[node name="MenuAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_oqwrj")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+
+[node name="SfxAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_xwr7x")
+
+[connection signal="pressed" from="Control/MenuGroup/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Control/MenuGroup/AudioBtn" to="." method="_on_audio_btn_pressed"]
+[connection signal="pressed" from="Control/MenuGroup/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="OptionsGroup/Music/MusicScrollBar" to="." method="_on_music_scroll_bar_value_changed"]
+[connection signal="value_changed" from="OptionsGroup/SFX/SfxScrollBar" to="." method="_on_sfx_scroll_bar_value_changed"]
+[connection signal="pressed" from="OptionsGroup/CancelBtn" to="." method="_on_cancel_btn_pressed"]
+[connection signal="pressed" from="OptionsGroup/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
