@@ -13,10 +13,22 @@ var isMoving: bool = false:
 var canInteract = false:
 	set(value):
 		canInteract = value
+		
+var pauseMenu: PauseMenu
+
+func _ready() -> void:
+	pauseMenu = get_tree().get_root().find_child("PauseMenu",true,false)
 
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		if pauseMenu.visible:
+			pauseMenu.visible = false
+		else:
+			pauseMenu.visible = true
 
 func get_input():
 	if GameManager.isPaused:

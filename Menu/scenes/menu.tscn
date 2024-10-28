@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://cbf3ak7twpqwh"]
+[gd_scene load_steps=25 format=3 uid="uid://cbf3ak7twpqwh"]
 
 [ext_resource type="Script" path="res://Menu/scripts/menu.gd" id="1_2mdlx"]
 [ext_resource type="Texture2D" uid="uid://cm4u7a8h4vtn5" path="res://Menu/sprites/background.png" id="2_2khke"]
 [ext_resource type="AudioStream" uid="uid://dfte08e0r6kfn" path="res://Audio/Menu_Music.mp3" id="2_k3o4f"]
+[ext_resource type="PackedScene" uid="uid://d3pg4x76ml81q" path="res://Components/Transition_Manager/transition_manager.tscn" id="2_nsftl"]
 [ext_resource type="Texture2D" uid="uid://4bcxs57h3k5q" path="res://Menu/sprites/logo_wo_bg.png" id="3_pxx7m"]
 [ext_resource type="AudioStream" uid="uid://dgv7ef73jygj8" path="res://Audio/Sfx/menuBtn.mp3" id="4_47cg7"]
 [ext_resource type="Texture2D" uid="uid://c1udiqaanxyr0" path="res://Menu/sprites/Menu Button.png" id="4_oq4gk"]
@@ -97,6 +98,8 @@ grow_vertical = 2
 script = ExtResource("1_2mdlx")
 metadata/_edit_vertical_guides_ = [640.0, 320.0]
 metadata/_edit_horizontal_guides_ = [360.0]
+
+[node name="TransitionManager" parent="." instance=ExtResource("2_nsftl")]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(321.5, 181)

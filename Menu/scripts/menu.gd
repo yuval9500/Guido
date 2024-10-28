@@ -16,7 +16,7 @@ func _ready() -> void:
 func _on_new_btn_pressed() -> void:
 	print("Play Btn Was Pressed")
 	audio_sfx_player.play()
-	get_tree().change_scene_to_file("res://TestLevel/Scenes/Test_Map.tscn")
+	$TransitionManager.transitionToScene("res://TestLevel/Scenes/Test_Map.tscn")
 	
 func _on_options_btn_pressed() -> void:
 	print("Options Btn Was Pressed")
