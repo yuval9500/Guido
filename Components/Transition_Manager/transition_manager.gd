@@ -21,7 +21,11 @@ func hideMe():
 func showMe():
 	visible = true
 
-func transitionToScene(sceneToMoveTo: String, currentScene: String) -> void:
+func transitionToScene(sceneToMoveTo: String) -> void:
+	newScene = sceneToMoveTo
+	transition_to_black()
+	
+func transitionToCombatScene(sceneToMoveTo: String, currentScene: String) -> void:
 	PlayerGlobals.playersPreviousScene = currentScene
 	print("Combat Encounter!")
 	newScene = sceneToMoveTo

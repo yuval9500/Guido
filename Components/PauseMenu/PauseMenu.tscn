@@ -1,0 +1,220 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmebacn235xqt"]
+
+[ext_resource type="Script" path="res://Components/PauseMenu/pause_menu.gd" id="1_5w0lb"]
+[ext_resource type="Shader" path="res://Components/PauseMenu/PopUpMenu.gdshader" id="1_fwomy"]
+[ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_eytcy"]
+[ext_resource type="StyleBox" uid="uid://c5b7420lsdy7s" path="res://Components/PauseMenu/new_style_box_flat.tres" id="4_5oyam"]
+
+[sub_resource type="Theme" id="Theme_4x3a3"]
+default_font = ExtResource("2_eytcy")
+default_font_size = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pqyiy"]
+shader = ExtResource("1_fwomy")
+shader_parameter/lod = 5.0
+shader_parameter/mix_percentage = 0.3
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8u2w"]
+font = ExtResource("2_eytcy")
+font_size = 48
+shadow_size = 5
+shadow_color = Color(1, 1, 1, 0.113725)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o0ous"]
+font = ExtResource("2_eytcy")
+font_size = 18
+
+[node name="PauseMenu" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_5w0lb")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4x3a3")
+
+[node name="BlurScreen" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_pqyiy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.168627)
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06875
+anchor_top = 0.180556
+anchor_right = 0.248437
+anchor_bottom = 0.25
+offset_left = 6.0
+offset_right = 63.0
+offset_bottom = 12.0
+text = "Options"
+label_settings = SubResource("LabelSettings_o8u2w")
+
+[node name="Control" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ResumeBtn" type="Button" parent="Control/Control"]
+offset_left = 50.0
+offset_top = 128.0
+offset_right = 129.0
+offset_bottom = 159.0
+theme_override_colors/font_hover_color = Color(0.992157, 0.721569, 0.0117647, 1)
+theme_override_fonts/font = ExtResource("2_eytcy")
+text = "Resume"
+flat = true
+alignment = 0
+
+[node name="AudioBtn" type="Button" parent="Control/Control"]
+offset_left = 50.0
+offset_top = 163.0
+offset_right = 120.0
+offset_bottom = 194.0
+theme_override_colors/font_hover_color = Color(0.992157, 0.721569, 0.0117647, 1)
+theme_override_fonts/font = ExtResource("2_eytcy")
+text = "Audio"
+flat = true
+alignment = 0
+
+[node name="Quit" type="Button" parent="Control/Control"]
+offset_left = 50.0
+offset_top = 198.0
+offset_right = 120.0
+offset_bottom = 229.0
+theme_override_colors/font_hover_color = Color(0.992157, 0.721569, 0.0117647, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_eytcy")
+text = "Quit"
+flat = true
+alignment = 0
+
+[node name="OptionsGroup" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -109.0
+offset_top = 19.0
+offset_right = -69.0
+offset_bottom = 59.0
+size_flags_horizontal = 4
+
+[node name="Music" type="Control" parent="OptionsGroup"]
+layout_mode = 1
+anchor_left = 0.7
+anchor_top = -1.175
+anchor_right = 1.7
+anchor_bottom = -0.175
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="OptionsGroup/Music"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 171.0
+offset_right = 187.0
+offset_bottom = 194.0
+text = "Music"
+label_settings = SubResource("LabelSettings_o0ous")
+
+[node name="MusicScrollBar" type="HScrollBar" parent="OptionsGroup/Music"]
+texture_filter = 2
+custom_minimum_size = Vector2(250, 15)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 175.0
+offset_top = 153.0
+offset_right = 425.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/grabber = ExtResource("4_5oyam")
+theme_override_styles/grabber_highlight = ExtResource("4_5oyam")
+theme_override_styles/grabber_pressed = ExtResource("4_5oyam")
+min_value = -80.0
+max_value = 0.0
+rounded = true
+
+[node name="SFX" type="Control" parent="OptionsGroup"]
+layout_mode = 1
+anchor_left = 0.7
+anchor_top = 1.2
+anchor_right = 1.7
+anchor_bottom = 2.2
+offset_top = -47.0
+offset_bottom = -47.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="OptionsGroup/SFX"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 171.0
+offset_right = 187.0
+offset_bottom = 194.0
+text = "SFX"
+label_settings = SubResource("LabelSettings_o0ous")
+
+[node name="SfxScrollBar" type="HScrollBar" parent="OptionsGroup/SFX"]
+texture_filter = 2
+custom_minimum_size = Vector2(250, 15)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 175.0
+offset_top = 153.0
+offset_right = 425.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/grabber = ExtResource("4_5oyam")
+theme_override_styles/grabber_highlight = ExtResource("4_5oyam")
+theme_override_styles/grabber_pressed = ExtResource("4_5oyam")
+min_value = -80.0
+max_value = 40.0
+rounded = true
+
+[node name="CancelBtn" type="Button" parent="OptionsGroup"]
+offset_left = 260.0
+offset_top = 220.0
+offset_right = 339.0
+offset_bottom = 251.0
+theme_override_colors/font_hover_color = Color(0.992157, 0.721569, 0.0117647, 1)
+theme_override_fonts/font = ExtResource("2_eytcy")
+text = "Cancel"
+flat = true
+
+[node name="ConfirmBtn" type="Button" parent="OptionsGroup"]
+offset_left = 160.0
+offset_top = 220.0
+offset_right = 239.0
+offset_bottom = 251.0
+theme_override_colors/font_hover_color = Color(0.992157, 0.721569, 0.0117647, 1)
+theme_override_fonts/font = ExtResource("2_eytcy")
+text = "Confirm"
+flat = true
+alignment = 0
+
+[connection signal="pressed" from="Control/Control/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Control/Control/AudioBtn" to="." method="_on_audio_btn_pressed"]
+[connection signal="pressed" from="Control/Control/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="OptionsGroup/CancelBtn" to="." method="_on_cancel_btn_pressed"]
