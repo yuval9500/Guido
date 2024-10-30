@@ -85,7 +85,6 @@ text = "Options"
 label_settings = SubResource("LabelSettings_o8u2w")
 
 [node name="MenuGroup" type="Control" parent="Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -156,6 +155,7 @@ text = "Quit"
 flat = true
 
 [node name="OptionsGroup" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
