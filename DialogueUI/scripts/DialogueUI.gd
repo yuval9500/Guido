@@ -18,17 +18,17 @@ var audio_player: AudioStreamPlayer = AudioStreamPlayer.new()
 var sfx: AudioStream = null
 
 func _ready():
-	# Add the audio player to the scene
 	add_child(audio_player)
 
 func startDialogue(nameTexts: Array, dialogueTexts: Array, sfxSound: String) -> void:
-	# Load the .wav file for the typing sound effect
 	sfx = load("res://Audio/Sfx/" + sfxSound) as AudioStream
 	
 	if sfx == null:
 		print("Error: Unable to load the .wav file: " + sfxSound)
 	else:
 		audio_player.stream = sfx
+		
+	audio_player.volume_db = AudioManager.load_sfx_volume()
 	
 	lineIndex = 0
 	self.visible = true
@@ -51,7 +51,7 @@ func startLine(dialogueLine: String) -> void:
 	started = true
 
 func _input(event):
-	if started and event.is_action_pressed("skip"):
+	if started and not GameManager.isPaused and event.is_action_pressed("skip"):
 		if waiting_for_next_line:
 			lineIndex += 1
 			if lineIndex < dialogue_lines.size():
@@ -63,18 +63,15 @@ func _input(event):
 
 func _on_timer_timeout() -> void:
 	if skip_typing:
-		# Immediately reveal the dialogue line and stop typing effect
 		$dialogueCon/dialogueLabel.text = dialogue_line
 		typing_timer.stop()
 		waiting_for_next_line = true  
 		return
 
-	# Type one letter at a time and play sound effect
 	if char_index < dialogue_line.length():
 		$dialogueCon/dialogueLabel.text += dialogue_line[char_index]
 		char_index += 1
 		
-		# Play typing sound effect if loaded
 		if audio_player.stream != null:
 			audio_player.play()
 	else:

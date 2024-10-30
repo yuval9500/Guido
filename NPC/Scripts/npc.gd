@@ -28,7 +28,7 @@ func _input(event: InputEvent) -> void:
 	dialogue(event)
 	
 func dialogue(event: InputEvent) -> void:
-	if canInteract and event.is_action_pressed("talk"):
+	if canInteract and not GameManager.isPaused and event.is_action_pressed("talk"):
 		canInteract = false
 		var names: Array = [npcName]
 		var dialogues: Array = [npcDefaultMsg]
