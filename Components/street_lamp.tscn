@@ -66,13 +66,14 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pb4ng")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_ijkye"]
 length = 0.001
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -88,7 +89,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_s0dja"]
 resource_name = "lightLamp"
-loop_mode = 2
+loop_mode = 1
 step = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -147,7 +148,7 @@ position = Vector2(0, -21.25)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_ppru0")
 autoplay = "default"
-frame_progress = 0.713345
+frame_progress = 0.687039
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

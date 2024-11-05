@@ -1,11 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmebacn235xqt"]
+[gd_scene load_steps=18 format=3 uid="uid://bmebacn235xqt"]
 
 [ext_resource type="Script" path="res://Components/PauseMenu/scripts/pause_menu.gd" id="1_5w0lb"]
 [ext_resource type="Shader" path="res://Components/PauseMenu/PopUpMenu.gdshader" id="1_fwomy"]
 [ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_eytcy"]
+[ext_resource type="FontFile" uid="uid://cmiys05oiioml" path="res://Fonts/Retro Gaming.ttf" id="4_g2tjh"]
 [ext_resource type="StyleBox" uid="uid://bdiyfp77xwrqa" path="res://Components/PauseMenu/scrollGrabber.tres" id="4_mix46"]
 [ext_resource type="Texture2D" uid="uid://sx11ypnuk3gg" path="res://Components/PauseMenu/sprites/circle-64.png" id="5_j5mvu"]
-[ext_resource type="AudioStream" uid="uid://dfte08e0r6kfn" path="res://Audio/Menu_Music.mp3" id="5_oqwrj"]
+[ext_resource type="AudioStream" uid="uid://cs886mtyflodh" path="res://Audio/game music [snow 2].mp3" id="6_xst7i"]
 [ext_resource type="AudioStream" uid="uid://dgv7ef73jygj8" path="res://Audio/Sfx/menuBtn.mp3" id="6_xwr7x"]
 
 [sub_resource type="Theme" id="Theme_4x3a3"]
@@ -33,8 +34,8 @@ shadow_offset = Vector2(2, 2)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_megji"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o0ous"]
-font = ExtResource("2_eytcy")
-font_size = 18
+font = ExtResource("4_g2tjh")
+font_size = 14
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8bkya"]
 content_margin_left = 8.0
@@ -311,7 +312,7 @@ flat = true
 alignment = 0
 
 [node name="MenuAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_oqwrj")
+stream = ExtResource("6_xst7i")
 volume_db = -20.0
 autoplay = true
 parameters/looping = true
