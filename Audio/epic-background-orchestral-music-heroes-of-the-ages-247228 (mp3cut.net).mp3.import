@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xtsolad6ldps"
+path="res://.godot/imported/epic-background-orchestral-music-heroes-of-the-ages-247228 (mp3cut.net).mp3-f612551ba7cd31d36124410466bcae25.mp3str"
+
+[deps]
+
+source_file="res://Audio/epic-background-orchestral-music-heroes-of-the-ages-247228 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/epic-background-orchestral-music-heroes-of-the-ages-247228 (mp3cut.net).mp3-f612551ba7cd31d36124410466bcae25.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
