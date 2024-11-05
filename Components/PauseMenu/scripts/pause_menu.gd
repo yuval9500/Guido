@@ -27,7 +27,7 @@ func _on_audio_btn_pressed() -> void:
 func _on_quit_pressed() -> void:
 		audio_sfx_player.play()
 		$".".visible = false
-		$"../TransitionManager".transitionToScene("res://Menu/scenes/menu.tscn")
+		$"../../TransitionManager".transitionToScene("res://Menu/scenes/menu.tscn")
 
 func _on_cancel_btn_pressed() -> void:
 	audio_sfx_player.play()

@@ -34,7 +34,7 @@ func dialogue(event: InputEvent) -> void:
 		var dialogues: Array = [npcDefaultMsg]
 		if not finished:
 			var story = StoryManager.loadStory(storyFile)
-			var result: Array  = StoryManager.ParseLines(story)
+			var result: Array = StoryManager.ParseLines(story)
 			names = result[0]
 			dialogues = result[1]
 	
