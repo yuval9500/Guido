@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c55rjakb7jajf"]
+[gd_scene load_steps=14 format=3 uid="uid://c55rjakb7jajf"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player_inventory_ui_script.gd" id="1_qqck6"]
 [ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_e0vrn"]
@@ -13,6 +13,9 @@ default_font_size = 20
 shader = ExtResource("3_0tp81")
 shader_parameter/lod = 5.0
 shader_parameter/mix_percentage = 0.3
+
+[sub_resource type="Theme" id="Theme_1vuev"]
+default_font_size = 16
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bw1qa"]
 
@@ -53,11 +56,15 @@ color = Color(0, 0, 0, 0.141176)
 metadata/_edit_lock_ = true
 
 [node name="LeftMenusContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.195313
 anchor_top = 0.111111
 anchor_right = 0.379687
 anchor_bottom = 0.888889
+offset_left = 14.0
+offset_right = 14.0
+theme = SubResource("Theme_1vuev")
 theme_override_constants/separation = 8
 metadata/_edit_use_anchors_ = true
 
@@ -118,6 +125,8 @@ anchor_left = 0.392188
 anchor_top = 0.111111
 anchor_right = 0.690625
 anchor_bottom = 0.888889
+offset_left = 14.0
+offset_right = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_5ojbs")

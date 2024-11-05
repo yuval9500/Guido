@@ -4,6 +4,10 @@ var playerButtons: Array
 var optionButtons: Array
 var inventoryTabs: Array
 
+var selectedPlayer
+var selectedMenuOption
+var selectedInventoryTab
+
 func _ready() -> void:
 	playerButtons = $Control/LeftMenusContainer/PlayerSelection/PlayersContainer.get_children()
 	optionButtons = $Control/LeftMenusContainer/OptionsSelection/OptionsContainer.get_children()
@@ -20,3 +24,12 @@ func toggleButtonPressed(pressedButton: Button, allButtons: Array):
 	for button in allButtons:
 		if button != pressedButton:
 			button.button_pressed = false
+	
+	if pressedButton in playerButtons:
+		selectedPlayer = PlayerGlobals.findPlayerByName(pressedButton.text)
+		print(selectedPlayer.name)
+		#TODO keep going with player stuff
+	elif pressedButton in optionButtons:
+		pass
+	elif pressedButton in inventoryTabs:
+		pass
