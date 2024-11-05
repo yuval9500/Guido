@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://c86uh8g3m0cdu"]
+[gd_scene load_steps=26 format=4 uid="uid://c86uh8g3m0cdu"]
 
 [ext_resource type="PackedScene" uid="uid://d3pg4x76ml81q" path="res://Components/Transition_Manager/transition_manager.tscn" id="1_463hs"]
 [ext_resource type="Texture2D" uid="uid://brrghschek3gd" path="res://TestLevel/Sprites/Snow/Kyle-Dove (forest and ground).png" id="1_i0l41"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d0cefv5mkn113" path="res://DialogueUI/scenes/DialogueUI.tscn" id="4_q8wtu"]
 [ext_resource type="PackedScene" uid="uid://bmebacn235xqt" path="res://Components/PauseMenu/scenes/PauseMenu.tscn" id="5_6g2wp"]
 [ext_resource type="PackedScene" uid="uid://cjal7htsu6nmm" path="res://Player/Scenes/player.tscn" id="5_dvig8"]
+[ext_resource type="PackedScene" uid="uid://c55rjakb7jajf" path="res://Player/Scenes/playerInventoryUI.tscn" id="6_oic7d"]
 [ext_resource type="PackedScene" uid="uid://jm6agy8uctxj" path="res://Components/Camera.tscn" id="6_u5fnr"]
 [ext_resource type="Texture2D" uid="uid://c6rh3umhwv17s" path="res://TestLevel/Sprites/StreetLamps/circle.png" id="7_cr3lg"]
 [ext_resource type="PackedScene" uid="uid://ctohr751keohh" path="res://NPC/Scenes/NPC.tscn" id="8_jlcum"]
@@ -14912,6 +14913,8 @@ tile_map_data = PackedByteArray("AAABAPz/BQACAIYAAAABAP3/BQACAIcAAAABAP7/BQACAIg
 tile_set = SubResource("TileSet_a2xmj")
 
 [node name="DialogueUI" parent="." instance=ExtResource("4_q8wtu")]
+
+[node name="PlayerInventoryUI" parent="." instance=ExtResource("6_oic7d")]
 
 [node name="NPC" parent="." instance=ExtResource("8_jlcum")]
 position = Vector2(1633, 453)

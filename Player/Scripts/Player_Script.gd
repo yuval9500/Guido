@@ -15,9 +15,13 @@ var canInteract = false:
 		canInteract = value
 		
 var pauseMenu: PauseMenu
+var dialogueUI: DialogueUI
+var playerInventoryUI
 
 func _ready() -> void:
 	pauseMenu = get_tree().get_root().find_child("PauseMenu",true,false)
+	dialogueUI = get_tree().get_root().find_child("DialogueUI",true,false)
+	playerInventoryUI = get_tree().get_root().find_child("PlayerInventoryUI",true,false)
 
 func _physics_process(_delta):
 	get_input()
@@ -25,7 +29,9 @@ func _physics_process(_delta):
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
-		if pauseMenu.visible:
+		if playerInventoryUI.visible:
+			playerInventoryUI.visible = false
+		elif pauseMenu.visible:
 			var menuGroup = pauseMenu.find_child("MenuGroup")
 			var optionGroup = pauseMenu.find_child("OptionsGroup")
 			if optionGroup.visible:
@@ -36,6 +42,8 @@ func _input(event: InputEvent) -> void:
 		else:
 			GameManager.pauseGame()
 			pauseMenu.visible = true
+	elif event.is_action_pressed("inventory") and not GameManager.isPaused and not dialogueUI.visible:
+		playerInventoryUI.visible = not playerInventoryUI.visible
 
 func get_input():
 	if GameManager.isPaused:
