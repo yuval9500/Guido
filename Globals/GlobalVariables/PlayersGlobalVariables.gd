@@ -15,5 +15,8 @@ var player1: Player = Player.new("player1", 10, 15, 10, player1Attacks, player1S
 var player2: Player = Player.new("player2", 10, 10, 8, player2Attacks, player2Spells, player2Items,\
 1,1,1,1,1,1)
 
-#TODO remember your position within the previousScene
-var playersPreviousScene: String
+#TODO change player names
+var players: Dictionary = {"Player1":player1, "Player2":player2}
+
+func findPlayerByName(playerName: String):
+	return players[playerName]
