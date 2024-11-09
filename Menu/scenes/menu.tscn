@@ -1,37 +1,33 @@
-[gd_scene load_steps=25 format=3 uid="uid://cbf3ak7twpqwh"]
+[gd_scene load_steps=26 format=3 uid="uid://cbf3ak7twpqwh"]
 
 [ext_resource type="Script" path="res://Menu/scripts/menu.gd" id="1_2mdlx"]
 [ext_resource type="Texture2D" uid="uid://cm4u7a8h4vtn5" path="res://Menu/sprites/background.png" id="2_2khke"]
-[ext_resource type="AudioStream" uid="uid://dfte08e0r6kfn" path="res://Audio/Menu_Music.mp3" id="2_k3o4f"]
 [ext_resource type="PackedScene" uid="uid://d3pg4x76ml81q" path="res://Components/Transition_Manager/transition_manager.tscn" id="2_nsftl"]
 [ext_resource type="Texture2D" uid="uid://4bcxs57h3k5q" path="res://Menu/sprites/logo_wo_bg.png" id="3_pxx7m"]
 [ext_resource type="AudioStream" uid="uid://dgv7ef73jygj8" path="res://Audio/Sfx/menuBtn.mp3" id="4_47cg7"]
 [ext_resource type="Texture2D" uid="uid://c1udiqaanxyr0" path="res://Menu/sprites/Menu Button.png" id="4_oq4gk"]
+[ext_resource type="AudioStream" uid="uid://cmpd3tnn1wt1q" path="res://Audio/game music [inn2].mp3" id="4_xiuwj"]
 [ext_resource type="Script" path="res://Menu/scenes/menu_group.gd" id="5_if50g"]
 [ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="5_pgug2"]
 [ext_resource type="Texture2D" uid="uid://kqh6nsl38np1" path="res://Menu/sprites/bg_board.png" id="8_atemr"]
+[ext_resource type="FontFile" uid="uid://cmiys05oiioml" path="res://Fonts/Retro Gaming.ttf" id="9_3co6p"]
 [ext_resource type="Texture2D" uid="uid://dmmvqh602orl0" path="res://Menu/sprites/wooden-game-buttons-banners_107791-4924-removebg-preview.png" id="9_rlr3j"]
 [ext_resource type="Texture2D" uid="uid://mfid0i1fj05n" path="res://Menu/sprites/button.png" id="9_yy34o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lg18s"]
-font = ExtResource("5_pgug2")
-font_size = 18
+font = ExtResource("9_3co6p")
 
 [sub_resource type="LabelSettings" id="LabelSettings_wgrlu"]
-font = ExtResource("5_pgug2")
-font_size = 18
+font = ExtResource("9_3co6p")
 
 [sub_resource type="LabelSettings" id="LabelSettings_awi85"]
-font = ExtResource("5_pgug2")
-font_size = 18
+font = ExtResource("9_3co6p")
 
 [sub_resource type="LabelSettings" id="LabelSettings_3u73h"]
-font = ExtResource("5_pgug2")
-font_size = 18
+font = ExtResource("9_3co6p")
 
 [sub_resource type="LabelSettings" id="LabelSettings_2g2v7"]
-font = ExtResource("5_pgug2")
-font_size = 18
+font = ExtResource("9_3co6p")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cvcht"]
 content_margin_left = 8.0
@@ -107,7 +103,7 @@ scale = Vector2(0.361049, 0.363281)
 texture = ExtResource("2_2khke")
 
 [node name="MenuAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_k3o4f")
+stream = ExtResource("4_xiuwj")
 volume_db = -20.0
 autoplay = true
 parameters/looping = true
@@ -164,7 +160,6 @@ text = "New Game"
 label_settings = SubResource("LabelSettings_lg18s")
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="ContinueBtn" type="TextureButton" parent="MenuGroup"]
 layout_mode = 1
@@ -221,7 +216,6 @@ text = "Options
 label_settings = SubResource("LabelSettings_awi85")
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="ExitBtn" type="TextureButton" parent="MenuGroup"]
 layout_mode = 1
