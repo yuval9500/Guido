@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctohr751keohh"]
 
-[ext_resource type="Script" path="res://NPC/Scripts/npc.gd" id="1_31tyr"]
-[ext_resource type="Texture2D" uid="uid://3wexd8hv4lxd" path="res://NPC/Sprites/Baldude V3.png" id="2_i7pok"]
+[ext_resource type="Script" uid="uid://42vhi81511t6" path="res://NPC/Scripts/npc.gd" id="1_31tyr"]
+[ext_resource type="Texture2D" uid="uid://dnq551k3b2po2" path="res://NPC/Sprites/Sprite-0001.png" id="2_vrkps"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0v3t3"]
 radius = 73.1095
@@ -11,7 +11,7 @@ script = ExtResource("1_31tyr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_i7pok")
+texture = ExtResource("2_vrkps")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0v3t3")

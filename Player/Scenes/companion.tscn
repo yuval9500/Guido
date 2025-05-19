@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8vyq8toh8r5q"]
 
-[ext_resource type="Script" path="res://Player/Scripts/Companion_Script.gd" id="1_p2vri"]
+[ext_resource type="Script" uid="uid://cukef8igcwgt1" path="res://Player/Scripts/Companion_Script.gd" id="1_p2vri"]
 [ext_resource type="Texture2D" uid="uid://bb34nkeo08nuc" path="res://Player/Sprites/Companion_Sprite.png" id="1_uorac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44epb"]

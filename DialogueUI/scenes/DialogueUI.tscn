@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0cefv5mkn113"]
 
 [ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="1_4muq5"]
-[ext_resource type="Script" path="res://DialogueUI/scripts/DialogueUI.gd" id="1_u0ief"]
+[ext_resource type="Script" uid="uid://byfg5d7xwoujd" path="res://DialogueUI/scripts/DialogueUI.gd" id="1_u0ief"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_alv32"]
 font = ExtResource("1_4muq5")

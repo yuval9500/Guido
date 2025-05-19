@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://bmebacn235xqt"]
 
-[ext_resource type="Script" path="res://Components/PauseMenu/scripts/pause_menu.gd" id="1_5w0lb"]
-[ext_resource type="Shader" path="res://Components/PauseMenu/PopUpMenu.gdshader" id="1_fwomy"]
+[ext_resource type="Script" uid="uid://cfklus5p5noy8" path="res://Components/PauseMenu/scripts/pause_menu.gd" id="1_5w0lb"]
+[ext_resource type="Shader" uid="uid://b76plrwahuvdn" path="res://Components/PauseMenu/PopUpMenu.gdshader" id="1_fwomy"]
 [ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_eytcy"]
 [ext_resource type="FontFile" uid="uid://cmiys05oiioml" path="res://Fonts/Retro Gaming.ttf" id="4_g2tjh"]
 [ext_resource type="StyleBox" uid="uid://bdiyfp77xwrqa" path="res://Components/PauseMenu/scrollGrabber.tres" id="4_mix46"]

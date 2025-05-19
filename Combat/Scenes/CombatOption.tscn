@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2kymrn7a6oyh"]
 
-[ext_resource type="Script" path="res://Combat/Scripts/combat_option.gd" id="1_7rvpb"]
+[ext_resource type="Script" uid="uid://dies1wy4m5xyy" path="res://Combat/Scripts/combat_option.gd" id="1_7rvpb"]
 
 [node name="Option1" type="Button"]
 anchors_preset = -1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d3pg4x76ml81q"]
 
-[ext_resource type="Script" path="res://Components/Transition_Manager/transition_manager.gd" id="1_du6pq"]
+[ext_resource type="Script" uid="uid://cps7w1ecxfx5k" path="res://Components/Transition_Manager/transition_manager.gd" id="1_du6pq"]
 
 [sub_resource type="Animation" id="Animation_a0kae"]
 resource_name = "Black_To_Better"
@@ -84,9 +84,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8tmyi"]
 _data = {
-"Black_To_Better": SubResource("Animation_a0kae"),
-"RESET": SubResource("Animation_076yh"),
-"Supreme_To_Black": SubResource("Animation_4vo7e")
+&"Black_To_Better": SubResource("Animation_a0kae"),
+&"RESET": SubResource("Animation_076yh"),
+&"Supreme_To_Black": SubResource("Animation_4vo7e")
 }
 
 [node name="TransitionManager" type="CanvasLayer"]
