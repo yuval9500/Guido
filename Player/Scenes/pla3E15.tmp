@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://drl1shynlk7pt"]
+
+[ext_resource type="Script" path="res://Player/Scripts/player_inventory_ui_script.gd" id="1_f7f6a"]
+[ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="1_fmape"]
+[ext_resource type="Shader" path="res://Components/PauseMenu/PopUpMenu.gdshader" id="2_fqm3p"]
+[ext_resource type="Texture2D" uid="uid://d34nvsukdjtwi" path="res://Player/Sprites/knight_helmet_icon.png" id="3_3rfws"]
+[ext_resource type="Texture2D" uid="uid://dgqh0f7vss32g" path="res://Player/Sprites/backpack_icon.png" id="4_dghqi"]
+
+[sub_resource type="Theme" id="Theme_ocvs2"]
+default_font = ExtResource("1_fmape")
+default_font_size = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_743ce"]
+shader = ExtResource("2_fqm3p")
+shader_parameter/lod = 5.0
+shader_parameter/mix_percentage = 0.3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adqjp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkwlt"]
+bg_color = Color(0.470588, 0.470588, 0.470588, 0.235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dps8b"]
+bg_color = Color(0.0430392, 0.0430391, 0.0430392, 0.235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_br0qk"]
+bg_color = Color(0.286275, 0.286275, 0.286275, 0.235294)
+
+[node name="PlayerInventoryUI" type="CanvasLayer"]
+script = ExtResource("1_f7f6a")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ocvs2")
+metadata/_edit_lock_ = true
+
+[node name="BlurScreen" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_743ce")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.141176)
+metadata/_edit_lock_ = true
+
+[node name="Options" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.128125
+anchor_bottom = 1.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CharactersButton" type="Button" parent="Control/Options"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adqjp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tkwlt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dps8b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_br0qk")
+toggle_mode = true
+icon = ExtResource("3_3rfws")
+icon_alignment = 1
+
+[node name="InventoryButton" type="Button" parent="Control/Options"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adqjp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tkwlt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dps8b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_br0qk")
+toggle_mode = true
+icon = ExtResource("4_dghqi")
+icon_alignment = 1

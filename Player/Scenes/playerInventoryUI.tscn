@@ -1,0 +1,237 @@
+[gd_scene load_steps=14 format=3 uid="uid://c55rjakb7jajf"]
+
+[ext_resource type="Script" path="res://Player/Scripts/player_inventory_ui_script.gd" id="1_qqck6"]
+[ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="2_e0vrn"]
+[ext_resource type="Shader" path="res://Components/PauseMenu/PopUpMenu.gdshader" id="3_0tp81"]
+[ext_resource type="StyleBox" uid="uid://cyh53yf46bnad" path="res://Player/Styles/PanelStyleBox.tres" id="4_ljsr1"]
+
+[sub_resource type="Theme" id="Theme_sw84t"]
+default_font = ExtResource("2_e0vrn")
+default_font_size = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g7tny"]
+shader = ExtResource("3_0tp81")
+shader_parameter/lod = 5.0
+shader_parameter/mix_percentage = 0.3
+
+[sub_resource type="Theme" id="Theme_1vuev"]
+default_font_size = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bw1qa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_di52i"]
+
+[sub_resource type="Theme" id="Theme_5ojbs"]
+PopupMenu/font_sizes/font_size = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7awi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhe2j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_26ruc"]
+
+[node name="playerInventoryUI" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_qqck6")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_sw84t")
+metadata/_edit_lock_ = true
+
+[node name="BlurScreen" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_g7tny")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.141176)
+metadata/_edit_lock_ = true
+
+[node name="LeftMenusContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.195313
+anchor_top = 0.111111
+anchor_right = 0.379687
+anchor_bottom = 0.888889
+offset_left = 14.0
+offset_right = 14.0
+theme = SubResource("Theme_1vuev")
+theme_override_constants/separation = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerSelection" type="PanelContainer" parent="Control/LeftMenusContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_ljsr1")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayersContainer" type="VBoxContainer" parent="Control/LeftMenusContainer/PlayerSelection"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="player1Button" type="Button" parent="Control/LeftMenusContainer/PlayerSelection/PlayersContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bw1qa")
+toggle_mode = true
+text = "Player1"
+
+[node name="player2Button" type="Button" parent="Control/LeftMenusContainer/PlayerSelection/PlayersContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_di52i")
+toggle_mode = true
+text = "Player2"
+
+[node name="OptionsSelection" type="PanelContainer" parent="Control/LeftMenusContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_ljsr1")
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionsContainer" type="VBoxContainer" parent="Control/LeftMenusContainer/OptionsSelection"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="StatsButton" type="Button" parent="Control/LeftMenusContainer/OptionsSelection/OptionsContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bw1qa")
+toggle_mode = true
+text = "Stats"
+
+[node name="InventoryButton" type="Button" parent="Control/LeftMenusContainer/OptionsSelection/OptionsContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_di52i")
+toggle_mode = true
+text = "Inventory"
+
+[node name="CloseButton" type="Button" parent="Control/LeftMenusContainer/OptionsSelection/OptionsContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_di52i")
+toggle_mode = true
+text = "Close"
+
+[node name="Inventory" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.392188
+anchor_top = 0.111111
+anchor_right = 0.690625
+anchor_bottom = 0.888889
+offset_left = 14.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_5ojbs")
+theme_override_styles/panel = ExtResource("4_ljsr1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Tabs" type="HBoxContainer" parent="Control/Inventory"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.00714286
+anchor_right = 1.0
+anchor_bottom = 0.0857143
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+theme_override_constants/separation = 2
+
+[node name="WeaponsTabButton" type="Button" parent="Control/Inventory/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c7awi")
+toggle_mode = true
+text = "Weapons"
+
+[node name="SpellsTabButton" type="Button" parent="Control/Inventory/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dhe2j")
+toggle_mode = true
+text = "Spells"
+
+[node name="ItemsTabButton" type="Button" parent="Control/Inventory/Tabs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26ruc")
+toggle_mode = true
+text = "Items"
+
+[node name="InventorySlots" type="VBoxContainer" parent="Control/Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = 23.0
+offset_right = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Title" type="Label" parent="Control/Inventory/InventorySlots"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Title:"
+horizontal_alignment = 1
+
+[node name="Slot1" type="MenuButton" parent="Control/Inventory/InventorySlots"]
+layout_mode = 2
+text = "Slot1"
+flat = false
+item_count = 2
+popup/item_0/text = "Equip"
+popup/item_1/text = "Drop"
+popup/item_1/id = 1
+
+[node name="Slot2" type="MenuButton" parent="Control/Inventory/InventorySlots"]
+layout_mode = 2
+text = "Slot2"
+flat = false
+item_count = 2
+popup/item_0/text = "Equip"
+popup/item_1/text = "Drop"
+popup/item_1/id = 1
+
+[node name="Slot3" type="MenuButton" parent="Control/Inventory/InventorySlots"]
+layout_mode = 2
+text = "Slot3"
+flat = false
+item_count = 2
+popup/item_0/text = "Equip"
+popup/item_1/text = "Drop"
+popup/item_1/id = 1
+
+[node name="Slot4" type="MenuButton" parent="Control/Inventory/InventorySlots"]
+layout_mode = 2
+text = "Slot4"
+flat = false
+item_count = 2
+popup/item_0/text = "Equip"
+popup/item_1/text = "Drop"
+popup/item_1/id = 1
+
+[node name="Slot5" type="MenuButton" parent="Control/Inventory/InventorySlots"]
+layout_mode = 2
+text = "Slot5"
+flat = false
+item_count = 2
+popup/item_0/text = "Equip"
+popup/item_1/text = "Drop"
+popup/item_1/id = 1
+
+[node name="StatsMenu" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 15.0
+offset_top = 302.0
+offset_right = 55.0
+offset_bottom = 342.0
