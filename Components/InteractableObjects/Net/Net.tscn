@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://iv8yri3rdqnt"]
+
+[ext_resource type="Texture2D" uid="uid://bps37xk8ef2m" path="res://Components/InteractableObjects/Net/Sprite-test.png" id="1_7evoi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slfsm"]
+size = Vector2(52, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwkps"]
+size = Vector2(15, 194)
+
+[node name="Net" type="StaticBody2D"]
+z_index = 2
+scale = Vector2(0.6, 0.6)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -91)
+shape = SubResource("RectangleShape2D_slfsm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 92.5)
+shape = SubResource("RectangleShape2D_slfsm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-27.5, 1)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_nwkps")
+
+[node name="Sprite-test" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 0)
+scale = Vector2(0.228102, 0.228102)
+texture = ExtResource("1_7evoi")

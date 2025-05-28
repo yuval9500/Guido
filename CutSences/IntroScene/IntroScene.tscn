@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cccgyb8yxgaiv"]
 
-[ext_resource type="Script" path="res://CutSences/IntroScene/intro_scene.gd" id="1_ofrh0"]
+[ext_resource type="Script" uid="uid://bohodmsgdogpg" path="res://CutSences/IntroScene/intro_scene.gd" id="1_ofrh0"]
 [ext_resource type="FontFile" uid="uid://cmiys05oiioml" path="res://Fonts/Retro Gaming.ttf" id="2_7wlu4"]
 [ext_resource type="AudioStream" uid="uid://c8pvkt20tlrdx" path="res://Audio/Music-stop.mp3" id="3_dx886"]
 [ext_resource type="AudioStream" uid="uid://xtsolad6ldps" path="res://Audio/epic-background-orchestral-music-heroes-of-the-ages-247228 (mp3cut.net).mp3" id="3_rhgj0"]
@@ -257,8 +257,8 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5mbsi"]
 _data = {
-"IntroScene": SubResource("Animation_oob1g"),
-"RESET": SubResource("Animation_86c1q")
+&"IntroScene": SubResource("Animation_oob1g"),
+&"RESET": SubResource("Animation_86c1q")
 }
 
 [node name="IntroScene" type="Node2D"]
@@ -371,7 +371,7 @@ wait_time = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_5mbsi")
+&"": SubResource("AnimationLibrary_5mbsi")
 }
 autoplay = "IntroScene"
 

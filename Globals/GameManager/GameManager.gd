@@ -4,6 +4,6 @@ extends Node
 
 func pauseGame() -> void:
 	isPaused = true
-	
+
 func resumeGame() -> void:
 	isPaused = false

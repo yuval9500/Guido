@@ -1,10 +1,12 @@
-Player1$ Oh m... m..  man , I'm so drunk. I can't remember anything.
+Player1$ Oh m... m..  man , I'm so drunk. I can't remember anything.$walk(right,505)
 Player2$ Oh man, me too... wait, what's your name?
 Player1$ Ummm...
 Player1$ I think it's P... P... Pyrrhus, Pyrrhus the Bold.
-Pyrrhus the Bold$ What's yours?
+Pyrrhus the Bold$ What's yours?$look(left)
 Player2$ Mine starts with an "L," that's for sure.
-Player2$ Maybe Lysander, Lysander the Swift. Yeah, that’ll be the name.
+Player2$ Maybe Lysander, Lysander the Swift. Yeah, that’ll be the name.$walk(down,260)
 Pyrrhus the Bold$ Co.. co.. cool beans.
-Lysander the Swift$ Hey, let's talk to that bald dude and see where we are.
+Lysander the Swift$ Hey, let's talk to that bald dude and see where we are.$walk(right)
 Pyrrhus the Bold$ Sure.
+Lysander the Swift$ He’s just standing there... baldly.
+Pyrrhus the Bold$ I’m getting weird vibes already.$stop

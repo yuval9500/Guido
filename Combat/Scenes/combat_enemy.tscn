@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cx2tu1s3y7434"]
 
 [ext_resource type="Texture2D" uid="uid://std3tutoij04" path="res://NPC/Sprites/image.png" id="1_w2kjv"]
-[ext_resource type="Script" path="res://Combat/Scripts/combat_enemy.gd" id="2_qrqde"]
+[ext_resource type="Script" uid="uid://dwqp5rkk0ewxr" path="res://Combat/Scripts/combat_enemy.gd" id="2_qrqde"]
 
 [node name="CombatEnemy" type="TextureButton"]
 offset_left = -12.0

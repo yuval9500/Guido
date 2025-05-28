@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0cefv5mkn113"]
 
 [ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="1_4muq5"]
-[ext_resource type="Script" path="res://DialogueUI/scripts/DialogueUI.gd" id="1_u0ief"]
+[ext_resource type="Script" uid="uid://byfg5d7xwoujd" path="res://DialogueUI/scripts/DialogueUI.gd" id="1_u0ief"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_alv32"]
 font = ExtResource("1_4muq5")
@@ -21,9 +21,11 @@ anchor_top = 0.583333
 anchor_right = 0.223438
 anchor_bottom = 0.663333
 offset_top = 10.0
+offset_right = 56.9997
 offset_bottom = 9.2
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1.01387)
 color = Color(0.172833, 0.172833, 0.172833, 0.882353)
 metadata/_edit_use_anchors_ = true
 
@@ -36,7 +38,6 @@ anchor_right = 0.608392
 anchor_bottom = 0.910714
 text = "Test name"
 label_settings = SubResource("LabelSettings_alv32")
-horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 

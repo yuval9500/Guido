@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b76audpeshqkt"
+
+[deps]
+
+files=["res://Player/Centaur/credits/credits.notes.translation", "res://Player/Centaur/credits/credits.authors.translation", "res://Player/Centaur/credits/credits.licenses.translation", "res://Player/Centaur/credits/credits.urls.translation"]
+
+source_file="res://Player/Centaur/credits/credits.csv"
+dest_files=["res://Player/Centaur/credits/credits.notes.translation", "res://Player/Centaur/credits/credits.authors.translation", "res://Player/Centaur/credits/credits.licenses.translation", "res://Player/Centaur/credits/credits.urls.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://fv1npcwxhtk8"
+
+[deps]
+
+files=["res://Player/Firbolg/credits/credits.notes.translation", "res://Player/Firbolg/credits/credits.authors.translation", "res://Player/Firbolg/credits/credits.licenses.translation", "res://Player/Firbolg/credits/credits.urls.translation"]
+
+source_file="res://Player/Firbolg/credits/credits.csv"
+dest_files=["res://Player/Firbolg/credits/credits.notes.translation", "res://Player/Firbolg/credits/credits.authors.translation", "res://Player/Firbolg/credits/credits.licenses.translation", "res://Player/Firbolg/credits/credits.urls.translation"]
+
+[params]
+
+compress=true
+delimiter=0

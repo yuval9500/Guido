@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Guido"
 run/main_scene="res://Menu/scenes/menu.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -24,6 +24,7 @@ GameManager="*res://Globals/GameManager/GameManager.gd"
 PlayerGlobals="*res://Globals/GlobalVariables/PlayersGlobalVariables.gd"
 EnemyArchive="*res://Globals/GlobalVariables/EnemyArchive.gd"
 AudioManager="*res://Globals/AudioManager/AudioManager.gd"
+AudioDictionary="*res://Globals/AudioManager/AudioDictionary.gd"
 
 [debug]
 

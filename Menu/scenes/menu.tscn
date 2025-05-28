@@ -1,13 +1,13 @@
 [gd_scene load_steps=26 format=3 uid="uid://cbf3ak7twpqwh"]
 
-[ext_resource type="Script" path="res://Menu/scripts/menu.gd" id="1_2mdlx"]
+[ext_resource type="Script" uid="uid://cgi4p60bksldx" path="res://Menu/scripts/menu.gd" id="1_2mdlx"]
 [ext_resource type="Texture2D" uid="uid://cm4u7a8h4vtn5" path="res://Menu/sprites/background.png" id="2_2khke"]
 [ext_resource type="PackedScene" uid="uid://d3pg4x76ml81q" path="res://Components/Transition_Manager/transition_manager.tscn" id="2_nsftl"]
 [ext_resource type="Texture2D" uid="uid://4bcxs57h3k5q" path="res://Menu/sprites/logo_wo_bg.png" id="3_pxx7m"]
 [ext_resource type="AudioStream" uid="uid://dgv7ef73jygj8" path="res://Audio/Sfx/menuBtn.mp3" id="4_47cg7"]
 [ext_resource type="Texture2D" uid="uid://c1udiqaanxyr0" path="res://Menu/sprites/Menu Button.png" id="4_oq4gk"]
 [ext_resource type="AudioStream" uid="uid://cmpd3tnn1wt1q" path="res://Audio/game music [inn2].mp3" id="4_xiuwj"]
-[ext_resource type="Script" path="res://Menu/scenes/menu_group.gd" id="5_if50g"]
+[ext_resource type="Script" uid="uid://byh704civfwwu" path="res://Menu/scenes/menu_group.gd" id="5_if50g"]
 [ext_resource type="FontFile" uid="uid://qwrn5esm1jyj" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="5_pgug2"]
 [ext_resource type="Texture2D" uid="uid://kqh6nsl38np1" path="res://Menu/sprites/bg_board.png" id="8_atemr"]
 [ext_resource type="FontFile" uid="uid://cmiys05oiioml" path="res://Fonts/Retro Gaming.ttf" id="9_3co6p"]
@@ -183,8 +183,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Continue
-"
+text = "Continue"
 label_settings = SubResource("LabelSettings_wgrlu")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -211,8 +210,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Options
-"
+text = "Options"
 label_settings = SubResource("LabelSettings_awi85")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -389,8 +387,8 @@ metadata/_edit_use_anchors_ = true
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(311, -6)
 amount = 64
-process_material = SubResource("ParticleProcessMaterial_0j0vf")
 lifetime = 20.0
+process_material = SubResource("ParticleProcessMaterial_0j0vf")
 
 [connection signal="mouse_entered" from="MenuGroup/NewBtn" to="MenuGroup" method="_on_new_btn_mouse_entered"]
 [connection signal="mouse_exited" from="MenuGroup/NewBtn" to="MenuGroup" method="_on_new_btn_mouse_exited"]
