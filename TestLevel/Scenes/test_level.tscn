@@ -172,8 +172,9 @@ scale = Vector2(1.325, 1.315)
 [node name="Npc" parent="." instance=ExtResource("21_dhs3b")]
 position = Vector2(257, 67)
 
-[node name="Companion" parent="." instance=ExtResource("2_l8sjk")]
+[node name="Companion" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_l8sjk")]
 position = Vector2(174, 186)
+target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_pdwvv")]
 position = Vector2(273, 189)

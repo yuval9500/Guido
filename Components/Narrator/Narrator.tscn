@@ -21,6 +21,7 @@ anchor_top = 0.583333
 anchor_right = 0.223438
 anchor_bottom = 0.663333
 offset_top = 10.0
+offset_right = 56.9997
 offset_bottom = 9.2
 grow_horizontal = 2
 grow_vertical = 2
@@ -35,7 +36,6 @@ anchor_top = 0.0892857
 anchor_right = 0.608392
 anchor_bottom = 0.910714
 label_settings = SubResource("LabelSettings_gugao")
-horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 

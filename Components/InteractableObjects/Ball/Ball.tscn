@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnsqyw80j4vvg"]
+
+[ext_resource type="Texture2D" uid="uid://b2tueiheakrbc" path="res://Components/InteractableObjects/Ball/ball-export.png" id="1_2trlx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2trlx"]
+friction = 0.5
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gs1cs"]
+radius = 5.0
+
+[node name="Ball" type="RigidBody2D"]
+visibility_layer = 4
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_2trlx")
+gravity_scale = 0.0
+freeze_mode = 1
+
+[node name="Ball-export" type="Sprite2D" parent="."]
+position = Vector2(1.49012e-08, 3.8147e-06)
+scale = Vector2(0.0465836, 0.0465836)
+texture = ExtResource("1_2trlx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.10032, 2.10032)
+shape = SubResource("CircleShape2D_gs1cs")

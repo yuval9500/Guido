@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://sicynovdyr1x" path="res://Player/Firbolg/standard/walk.png" id="2_rg7kn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_754lw"]
-size = Vector2(24, 16)
+size = Vector2(24, 23)
 
 [sub_resource type="Animation" id="Animation_omv0o"]
 length = 0.001
@@ -173,7 +173,7 @@ script = ExtResource("1_ewu68")
 speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_754lw")
 
 [node name="Player_Sprite" type="Sprite2D" parent="."]
